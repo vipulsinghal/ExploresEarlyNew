@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{781AB72A-BE6B-417C-A7EA-D0066DE87DA9}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExplorersEarlyLearning</RootNamespace>
+    <AssemblyName>ExplorersEarlyLearning</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CentersController.cs" />
+    <Compile Include="Controllers\ContactusController.cs" />
+    <Compile Include="Controllers\EmploymentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PhilosophyController.cs" />
+    <Compile Include="Controllers\PortfoliosController.cs" />
+    <Compile Include="Controllers\ProgramsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlHelpers\NavigationHelper.cs" />
+    <Compile Include="Models\ViewModelBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\gallery.css" />
+    <Content Include="Content\css\layout.css" />
+    <Content Include="Content\css\prettyPhoto.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\treenode.css" />
+    <Content Include="Content\font\jandasafeandsound-webfont.svg" />
+    <Content Include="Content\font\myriadpro-boldcond_0-webfont.svg" />
+    <Content Include="Content\font\myriadpro-cond_0.svg" />
+    <Content Include="Content\font\pristina.svg" />
+    <Content Include="Content\gallery\campus1.jpg" />
+    <Content Include="Content\gallery\campus2.jpg" />
+    <Content Include="Content\gallery\campus3.jpg" />
+    <Content Include="Content\gallery\campus4.jpg" />
+    <Content Include="Content\gallery\campusmain.jpg" />
+    <Content Include="Content\gallery\class1.jpg" />
+    <Content Include="Content\gallery\class2.jpg" />
+    <Content Include="Content\gallery\class3.jpg" />
+    <Content Include="Content\gallery\class4.jpg" />
+    <Content Include="Content\gallery\classmain.jpg" />
+    <Content Include="Content\gallery\image1.jpg" />
+    <Content Include="Content\gallery\image2.jpg" />
+    <Content Include="Content\gallery\image4.jpg" />
+    <Content Include="Content\gallery\image5.jpg" />
+    <Content Include="Content\gallery\img1.jpg" />
+    <Content Include="Content\gallery\img2.jpg" />
+    <Content Include="Content\gallery\img3.jpg" />
+    <Content Include="Content\gallery\img4.jpg" />
+    <Content Include="Content\gallery\imgmain.jpg" />
+    <Content Include="Content\images\background_body.jpg" />
+    <Content Include="Content\images\bg_border.png" />
+    <Content Include="Content\images\bg_container.jpg" />
+    <Content Include="Content\images\bg_container.png" />
+    <Content Include="Content\images\bg_container2.png" />
+    <Content Include="Content\images\bg_footer.jpg" />
+    <Content Include="Content\images\bg_form.jpg" />
+    <Content Include="Content\images\bg_header.jpg" />
+    <Content Include="Content\images\box-bg.png" />
+    <Content Include="Content\images\box1_bg_hover.jpg" />
+    <Content Include="Content\images\btn_bg.jpg" />
+    <Content Include="Content\images\btn_enrol.jpg" />
+    <Content Include="Content\images\gallery\image1.jpg" />
+    <Content Include="Content\images\gallery\image2.jpg" />
+    <Content Include="Content\images\gallery\image3.jpg" />
+    <Content Include="Content\images\gallery\image4.jpg" />
+    <Content Include="Content\images\gallery\image5.jpg" />
+    <Content Include="Content\images\img1.png" />
+    <Content Include="Content\images\img2.png" />
+    <Content Include="Content\images\img3.png" />
+    <Content Include="Content\images\leaf.png" />
+    <Content Include="Content\images\leaf2.png" />
+    <Content Include="Content\images\leaf3.jpg" />
+    <Content Include="Content\images\link_arrow.png" />
+    <Content Include="Content\images\link_arrow2.png" />
+    <Content Include="Content\images\link_arrow3.png" />
+    <Content Include="Content\images\link_arrow4.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\navbar_bg.png" />
+    <Content Include="Content\images\navbg1.png" />
+    <Content Include="Content\images\navbg2.png" />
+    <Content Include="Content\images\navbg3.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\images\riboon_lft.png" />
+    <Content Include="Content\images\riboon_rgt.png" />
+    <Content Include="Content\images\trans.png" />
+    <Content Include="Content\images\TreeNode\arrows.png" />
+    <Content Include="Content\images\TreeNode\icons.png" />
+    <Content Include="Content\images\TreeNode\invis.gif" />
+    <Content Include="Content\images\TreeNode\line-end.png" />
+    <Content Include="Content\images\TreeNode\line.png" />
+    <Content Include="Content\images\TreeNode\stripe.png" />
+    <Content Include="Content\images\victoria_img.jpg" />
+    <Content Include="Content\images\video.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\font\myriadpro-boldcond_0-webfont.eot" />
+    <Content Include="Content\font\myriadpro-boldcond_0-webfont.ttf" />
+    <Content Include="Content\font\myriadpro-boldcond_0-webfont.woff" />
+    <Content Include="Content\font\myriadpro-cond_0.eot" />
+    <Content Include="Content\font\myriadpro-cond_0.ttf" />
+    <Content Include="Content\font\myriadpro-cond_0.woff" />
+    <Content Include="Content\font\pristina.eot" />
+    <Content Include="Content\font\pristina.ttf" />
+    <Content Include="Content\font\pristina.woff" />
+    <Content Include="Htmls\index.html" />
+    <Content Include="Htmls\philosophy.html" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-prettyPhoto.js" />
+    <Content Include="Scripts\liteaccordion-v2.2\css\bg_noise.png" />
+    <Content Include="Scripts\liteaccordion-v2.2\css\bg_stitch.png" />
+    <Content Include="Scripts\liteaccordion-v2.2\css\liteaccordion.css" />
+    <Content Include="Scripts\liteaccordion-v2.2\js\jquery.easing.1.3.js" />
+    <Content Include="Scripts\liteaccordion-v2.2\js\liteaccordion.jquery.js" />
+    <Content Include="Scripts\liteaccordion-v2.2\js\liteaccordion.jquery.min.js" />
+    <Content Include="Scripts\liteaccordion-v2.2\LICENCE.txt" />
+    <Content Include="Scripts\liteaccordion-v2.2\README.txt" />
+    <Content Include="Scripts\treenode.js" />
+    <Content Include="video\ExplorersEarlyLearning.mp4" />
+    <Content Include="video\video-js.css" />
+    <Content Include="video\video-js.min.css" />
+    <Content Include="video\video.dev.js" />
+    <Content Include="video\video.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\TopNavigation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\font\jandasafeandsound-webfont.eot" />
+    <Content Include="Content\font\jandasafeandsound-webfont.ttf" />
+    <Content Include="Content\font\jandasafeandsound-webfont.woff" />
+    <None Include="Properties\PublishProfiles\vipul.pubxml" />
+    <Content Include="Views\Philosophy\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\ImageGallery.cshtml" />
+    <Content Include="Views\Employment\Index.cshtml" />
+    <Content Include="Views\Portfolios\Index.cshtml" />
+    <Content Include="Views\Programs\Index.cshtml" />
+    <Content Include="Views\Programs\AnEmergent.cshtml" />
+    <Content Include="Views\Contactus\Index.cshtml" />
+    <Content Include="Views\Centers\Index.cshtml" />
+    <Content Include="Views\Programs\EarlyYearsFramework.cshtml" />
+    <Content Include="Views\Programs\OnlinePortfoliosMethod.cshtml" />
+    <Content Include="Views\Programs\EnvironmentalFocus.cshtml" />
+    <Content Include="Views\Programs\ReadyProgram.cshtml" />
+    <Content Include="Views\Centers\AbbotsfordRichmond.cshtml" />
+    <Content Include="Views\Centers\MaidstoneMaribyrnong.cshtml" />
+    <Content Include="video\font\vjs.eot" />
+    <Content Include="video\font\vjs.ttf" />
+    <Content Include="video\font\vjs.woff" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5668</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1415/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

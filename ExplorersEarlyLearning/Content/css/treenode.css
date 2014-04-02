@@ -1,0 +1,509 @@
+﻿li {
+    list-style: none outside none;
+}
+
+ .site-tree {
+    float: left;
+    padding: 0 11px 32px 21px;
+    font: 12px/1.5 "Segoe UI","Helvetica Neue",openSansRegular,Arial,Helvetica,sans-serif;
+}
+
+ .site-tree a {
+    color: #0078B1;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+ul.site-tree {
+    clear: both;
+    float: none;
+    padding: 0;
+}
+.site-tree .tree-node {
+    background: url("../images/treenode/line-end.png") no-repeat scroll -1px -32px rgba(0, 0, 0, 0);
+    margin-bottom: 32px;
+    padding-left: 21px;
+    position: relative;
+}
+.site-tree .tree-node .tree-node {
+    background: url("../images/treenode/line.png") no-repeat scroll 5px 0 rgba(0, 0, 0, 0);
+    margin: 0 0 0 74px;
+    padding: 32px 0 0 86px;
+}
+.site-tree .tree-node .tree-node:last-child {
+    background: url("../images/treenode/line-end.png") no-repeat scroll 5px 0 rgba(0, 0, 0, 0);
+}
+.site-tree .tree-icon {
+    background-position: 0 -94px;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    top: 10px;
+}
+.site-tree .active > .tree-icon {
+    background-position: -11px -94px;
+}
+.site-tree .tree-node .tree-node .tree-icon {
+    top: 42px;
+}
+.sitemap-panel .blank {
+    margin-top: 15%;
+    text-align: center;
+}
+.sitemap-panel .blank .dropdown-button {
+    margin-top: 30px;
+}
+.sitemap-panel .blank .button {
+    margin-top: 30px;
+}
+.sitemap-description li {
+    float: left;
+    line-height: 16px;
+    margin-left: 20px;
+}
+.sitemap-description li span {
+    background: none repeat scroll 0 0 #3CA8DB;
+    color: #FFFFFF;
+    cursor: default;
+    display: block;
+    float: left;
+    height: 16px;
+    margin-right: 5px;
+    text-align: center;
+    width: 16px;
+}
+.sitemap-description li span.dynamic {
+    background: none repeat scroll 0 0 #1076A6;
+}
+.sitemap-description li span.inherited {
+    background-image: url("../images/treenode/stripe.png");
+    background-repeat: repeat;
+}
+.sitemap-description li span.show-in-menu {
+    color: #000000;
+}
+.sitemap-description li span.unpublished {
+    background: none repeat scroll 0 0 #C1C1C1;
+}
+.sitemap-description li span.available {
+    background: none repeat scroll 0 0 #37B861;
+}
+.sitemap-description li span.completed {
+    background: none repeat scroll 0 0 #EEEEEE;
+    color: #333333;
+}
+.sitemap-description li span.disabled {
+    background: none repeat scroll 0 0 #CCCCCC;
+    color: #666666;
+}
+.map-item {
+    background-color: #3CA8DB;
+    height: 32px;
+    position: relative;
+    width: 160px;
+}
+.map-item.dynamic {
+    background-color: #1076A6;
+}
+.map-item.unpublished {
+    background-color: #C1C1C1;
+}
+.map-item.inherited {
+    background-image: url("../images/treenode/stripe.png");
+    background-repeat: repeat;
+}
+.map-item.show-in-menu > a {
+    color: #000000;
+    font-weight: 700;
+}
+.map-item > a {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    padding: 0 10px;
+    text-align: center;
+    width: 107px;
+}
+.map-item .arrow {
+    border-left: 1px solid #FFFFFF;
+    display: block;
+    float: right;
+    height: 16px;
+    padding: 8px;
+    text-indent: -9999px;
+    width: 16px;
+}
+.map-item ul {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #000000;
+    display: none;
+    left: 101%;
+    min-width: 100%;
+    position: absolute;
+    z-index: 99;
+    padding:0;
+    margin:0;
+}
+.map-item ul a {
+    color: #000000;
+    display: block;
+    line-height: 24px;
+    padding: 0 10px;
+}
+.map-item li:hover > a, .map-item ul a:hover {
+    background: none repeat scroll 0 0 #E5F0F7;
+}
+.map-item li {
+    position: relative;
+}
+.map-item li ul {
+    left: 100%;
+    position: absolute;
+    top: 0;
+}
+.map-item li:hover > ul {
+    display: block;
+}
+
+
+img.icon {
+    background: url("../images/treenode/icons.png") no-repeat scroll -999em -999em rgba(0, 0, 0, 0);
+    display: block;
+}
+img.icon.add {
+    background-position: 0 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.import {
+    background-position: -26px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.export {
+    background-position: -52px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.save {
+    background-position: -78px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.delete {
+    background-position: -104px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.upload {
+    background-position: -130px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.cancel {
+    background-position: -156px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.add-folder {
+    background-position: -182px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.uploads {
+    background-position: -208px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.send {
+    background-position: -234px 0;
+    height: 26px;
+    width: 26px;
+}
+img.icon.reset {
+    background-position: 0 -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.localize {
+    background-position: -78px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.setting {
+    background-position: -104px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.edit {
+    background-position: -130px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.plus {
+    background-position: -26px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.minus {
+    background-position: -52px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.rename {
+    background-position: -182px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.preview {
+    background-position: -208px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.switch {
+    background-position: -234px -26px;
+    height: 26px;
+    width: 26px;
+}
+img.icon.plus.small {
+    background-position: -33px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.minus.small {
+    background-position: -49px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.insert {
+    background-position: -161px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.edit.small {
+    background-position: -65px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.csharp {
+    background-position: -81px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.inline-edit {
+    background-position: -97px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.save.small {
+    background-position: -113px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.admin {
+    background-position: 0 -52px;
+    height: 12px;
+    width: 12px;
+}
+img.icon.users-roles {
+    background-position: -12px -52px;
+    height: 12px;
+    width: 16px;
+}
+img.icon.modules {
+    background-position: -28px -52px;
+    height: 12px;
+    width: 12px;
+}
+img.icon.signout {
+    background-position: -40px -52px;
+    height: 12px;
+    width: 12px;
+}
+img.icon.language {
+    background-position: -52px -52px;
+    height: 12px;
+    width: 13px;
+}
+img.icon.profile {
+    background-position: -65px -52px;
+    height: 12px;
+    width: 11px;
+}
+img.icon.template {
+    background-position: -76px -52px;
+    height: 12px;
+    width: 14px;
+}
+img.icon.cluster {
+    background-position: 0 -64px;
+    height: 16px;
+    width: 17px;
+}
+img.icon.arrow-right {
+    background-position: -17px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.arrow-down {
+    background-position: -129px -64px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.search {
+    background-position: 0 -80px;
+    height: 14px;
+    width: 14px;
+}
+img.icon.close {
+    background-position: -34px -105px;
+    height: 14px;
+    width: 14px;
+}
+img.icon.tick {
+    background-position: 0 -123px;
+    height: 12px;
+    width: 14px;
+}
+img.icon.cross {
+    background-position: -14px -123px;
+    height: 12px;
+    width: 12px;
+}
+img.icon.warning {
+    background-position: -26px -123px;
+    height: 12px;
+    width: 12px;
+}
+img.icon.warning.big {
+    background-position: -47px -160px;
+    height: 24px;
+    width: 28px;
+}
+img.icon.undo {
+    background-position: -32px -135px;
+    height: 13px;
+    width: 15px;
+}
+img.icon.redo {
+    background-position: -47px -135px;
+    height: 13px;
+    width: 15px;
+}
+img.icon.drag {
+    background-position: -22px -80px;
+    height: 18px;
+    width: 6px;
+}
+img.icon.rotate {
+    background-position: -28px -80px;
+    height: 20px;
+    width: 20px;
+}
+img.icon.rotate.anti {
+    background-position: -48px -80px;
+}
+img.icon.flip.y {
+    background-position: -68px -80px;
+    height: 26px;
+    width: 22px;
+}
+img.icon.flip.x {
+    background-position: -90px -80px;
+    height: 22px;
+    width: 26px;
+}
+img.icon.list {
+    background-position: -116px -80px;
+    height: 14px;
+    width: 17px;
+}
+img.icon.grid {
+    background-position: -150px -80px;
+    height: 14px;
+    width: 20px;
+}
+img.icon.media-library {
+    background-position: 0 -164px;
+    height: 20px;
+    width: 20px;
+}
+img.icon.arrow {
+    background-image: url("../images/treenode/arrows.png");
+}
+img.icon.arrow.small {
+    height: 6px;
+    width: 8px;
+}
+img.icon.arrow.white-down {
+    background-position: 0 0;
+}
+img.icon.arrow.white-up {
+    background-position: -8px 0;
+}
+img.icon.arrow.gray-down {
+    background-position: -16px 0;
+}
+img.icon.arrow.gray-up {
+    background-position: -24px 0;
+}
+img.icon.arrow.gray-right {
+    background-position: -18px -16px;
+    height: 8px;
+    width: 6px;
+}
+img.icon.arrow.black-down {
+    background-position: -32px 0;
+}
+img.icon.arrow.black-up {
+    background-position: -40px 0;
+}
+img.icon.arrow.switch {
+    background-position: 0 -6px;
+    height: 10px;
+    width: 7px;
+}
+img.icon.arrow.point-right {
+    background-position: -16px -24px;
+    height: 11px;
+    width: 12px;
+}
+img.icon.arrow.point-down {
+    background-position: -36px -6px;
+    height: 12px;
+    width: 11px;
+}
+img.icon.arrow.blue-down {
+    background-position: -28px -24px;
+    height: 9px;
+    width: 19px;
+}
+img.tree-icon {
+    height: 11px;
+    width: 11px;
+}
+img.icon.folder {
+    background-position: 0 -135px;
+    height: 13px;
+    width: 16px;
+}
+img.icon.file {
+    background-position: 0 -148px;
+    height: 16px;
+    width: 16px;
+}
+img.icon.file.image {
+    background-position: -16px -148px;
+}
+img.icon.file.document {
+    background-position: -32px -148px;
+}
+img.icon.home {
+    background-position: -150px -156px;
+    height: 14px;
+    width: 32px;
+}

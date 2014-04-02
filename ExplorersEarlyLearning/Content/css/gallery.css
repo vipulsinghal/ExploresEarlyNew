@@ -1,0 +1,57 @@
+/*
+Template Name: Education Time
+File: Gallery CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+#gallery{
+	display:block;
+	width:100%;
+	line-height:1.6em;
+	}
+
+#gallery .gallerycontainer{
+	display:block;
+	width:100%;
+        float:left;
+	/*margin-bottom:30px;
+	padding:0 0 20px 0;
+	border-bottom:1px solid #D7DBE0;*/
+	}
+
+#gallery .gallerycontainer .fl_left{
+        margin:20px 24px 0 0;
+	}
+.clickhere_btn{ background:#ccc; color:#fff;}
+.last{
+        margin-right:0px !important;
+    }
+.image_outer img{
+        width:100%;   
+    }
+.image_outer li{
+        margin:0px !important;
+    }
+
+#gallery .gallerycontainer .fl_right{
+	width:630px;
+	}
+
+#gallery ul{
+	margin:0;
+	padding:0!important;
+	list-style:none;
+	}
+
+#gallery li{
+	float:left;
+	margin:0 0 0 0!important;
+	padding:0!important;
+	background:none!important;
+	}
+
+#gallery li.last{
+	margin-right:0;
+	}

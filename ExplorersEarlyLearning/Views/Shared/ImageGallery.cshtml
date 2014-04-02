@@ -1,0 +1,62 @@
+﻿<link rel="stylesheet" href="@Url.Content("~/Content/css/prettyPhoto.css")" type="text/css" />
+<script type="text/javascript" src="@Url.Content("~/scripts/jquery-prettyPhoto.js")"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+        theme: 'dark_rounded'
+    });
+});
+</script>
+              
+    <div id="gallery" class="gallery">
+        <div class="gallerycontainer clear">
+            <div class="fl_right">
+                <h1>why explorers early learning?</h1>
+                <ul>
+                    <li>
+                        <a href="@Url.Content("~/Content/gallery/image1.jpg")" rel="prettyPhoto[gallery2]" title="Image 1">
+                            <img src="@Url.Content("~/Content/gallery/image1.jpg")" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/Content/gallery/image2.jpg")" rel="prettyPhoto[gallery2]" title="Image 2">
+                            <img src="@Url.Content("~/Content/gallery/image2.jpg")" alt="" /></a>
+                    </li>
+                    <li class="last">
+                        <a href="@Url.Content("~/Content/gallery/image1.jpg")" rel="prettyPhoto[gallery2]" title="Image 3">
+                            <img src="@Url.Content("~/Content/gallery/image1.jpg")" alt="" /></a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/Content/gallery/image4.jpg")" rel="prettyPhoto[gallery2]" title="Image 1">
+                            <img src="@Url.Content("~/Content/gallery/image4.jpg")" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/Content/gallery/image5.jpg")" rel="prettyPhoto[gallery2]" title="Image 2">
+                            <img src="@Url.Content("~/Content/gallery/image5.jpg")" alt="" /></a>
+                    </li>
+                    <li class="last">
+                        <a href="@Url.Content("~/Content/gallery/image4.jpg")" rel="prettyPhoto[gallery2]" title="Image 3">
+                            <img src="@Url.Content("~/Content/gallery/image4.jpg")" alt="" /></a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Content("~/Content/gallery/image5.jpg")" rel="prettyPhoto[gallery2]" title="Image 1">
+                            <img src="@Url.Content("~/Content/gallery/image5.jpg")" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Content("~/Content/gallery/image2.jpg")" rel="prettyPhoto[gallery2]" title="Image 2">
+                            <img src="@Url.Content("~/Content/gallery/image2.jpg")" alt="" /></a>
+                    </li>
+                    <li class="last">
+                        <a href="@Url.Content("~/Content/gallery/image5.jpg")" rel="prettyPhoto[gallery2]" title="Image 3">
+                            <img src="@Url.Content("~/Content/gallery/image5.jpg")" alt="" /></a>
+                    </li>
+                </ul>
+                <a href="#" class="link_nxt">
+                    <img src="@Url.Content("~/Content/images/link_arrow.png")" width="16" height="17" alt="link"></a>
+            </div>
+        </div>
+        <!-- ########### -->
+    </div>
+

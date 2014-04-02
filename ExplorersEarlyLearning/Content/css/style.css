@@ -1,0 +1,166 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'janda_safe_and_soundregular';
+    src: url('../font/jandasafeandsound-webfont.eot');
+    src: url('../font/jandasafeandsound-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/jandasafeandsound-webfont.woff') format('woff'),
+         url('../font/jandasafeandsound-webfont.ttf') format('truetype'),
+         url('../font/jandasafeandsound-webfont.svg#janda_safe_and_soundregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body{
+	margin:0px;
+	padding:0px;		
+	color:#231f20;
+	font-family: Arial, Helvetica, sans-serif;
+	background: url(../images/background_body.jpg) center no-repeat fixed #ccc;
+	background-size:cover;
+	line-height:22px;
+}
+h1,h2,h3,h4,h5,h6,span,p,td, li, ol, ul{
+	margin:0px; 
+	padding:0px;
+}
+img{border:0px none;}
+
+a{ text-decoration:none;}
+
+a:hover{color:#aa9e16; text-decoration:none;}
+.left{float:left;}
+p{ line-height:20px;}
+
+/*----wrapper div css code start here---*/
+#wrapper{width:100%;}
+/*----wrapper div css code end here---*/
+.wrapper_inner{ width:940px; margin:0 auto; background:#fff;}
+
+.clear{ clear:both;}
+/*----header div css code start here---*/
+.header{ width:940px; margin:0 auto; background-image: url(../images/trans.png); background-repeat:no-repeat; background-size:cover;  padding:10px 0 0 0;}
+.logo{ margin:0px 0 0 26px; float:left;}
+.callbox_outer{ float:right; width:40%; margin:0 26px 0 0;}
+.call-area{float:right; width:100%;font-family: 'janda_safe_and_soundregular'; margin:65px 0 0 0; text-align:right; color:#805b3f; font-size:22px; font-weight:600;}
+.call-area .phn{ float:right; color:#5bb65e; padding-left:6px}
+.callbox_outer .joinbox_outer{ color:#805b3f; font-size:18px; float:right; line-height:58px; font-family: 'janda_safe_and_soundregular'; font-weight:600;}
+.callbox_outer .joinbox_outer a.enrol_btn{ float:right; background:url(../images/btn_enrol.jpg) repeat-x; border-radius:12px; padding:0 8px; margin-left:18px; border:1px solid #66b051; text-decoration:underline; color:#fff; line-height:53px; text-transform:uppercase; font-weight:normal;}
+
+
+/*----nav css start here---*/
+.nav{background: url(../images/navbar_bg.png) repeat-x;  margin-bottom:-10px;  float:left; width:100%; position:relative;}
+.nav .ribbon_lft{ position:absolute; left:-32px; top:7px; background:url(../images/riboon_lft.png) no-repeat; width:32px; height:45px;}
+.nav .ribbon_rgt{ position:absolute; right:-32px;top:7px; background:url(../images/riboon_rgt.png) no-repeat; width:32px; height:45px;}
+.nav ul{margin:0; float:left; padding:0;  z-index:9;}
+.nav ul li{float:left;list-style:none; position:relative;}
+.nav ul li a{ font-family: 'janda_safe_and_soundregular';background:url(../images/navbg2.png) no-repeat 18px 120%; color:#FFF;  padding:19px 22px 12px; font-size:16px; text-transform:uppercase;  float:left; -webkit-transition: all 0.7s ease; -moz-transition: all 0.7s ease; -o-transition: all 0.7s ease;}
+.nav ul li:first-child a:hover, .nav ul li:first-child a.active{ background:url(../images/navbg1.png) no-repeat 18px 34px;}
+.nav ul li a:hover, .nav ul li a.active{ background:url(../images/navbg2.png) no-repeat 18px 34px;}
+
+
+/* sub menu css */
+.nav ul li ul{ display:none; position:absolute; z-index:999; left:-5px; top:44px; background:#5bb65e; width:280px; border-radius:0 0 8px 8px; padding:0 10px 10px 10px;}
+.nav ul li:hover ul{ display:block; }
+.nav ul li ul li{ width:100%;  }
+.nav ul li ul li a{ background:none; padding-left:0px; background-position: right 65px}
+.nav ul li ul li:hover a, .nav ul li ul li a.active{background:url(../images/navbg3.png) no-repeat right 35px!important; }
+
+
+
+/*----middle_container css start here---*/
+.middle_container .container1{ padding:21px 33px 20px 33px;}
+.middle_container .container1 .sliderbox{ margin:0 auto 20px auto; width:802px;}
+.middle_container .container1 .sliderbox img{ width:100%;}
+.middle_container .container1 .leftpanel{ float:left}
+.middle_container .container1 .leftpanel{ width:556px;}
+.middle_container .container1 h1{ text-transform:capitalize; color:#8e6c53; font-size:18px; background:url(../images/leaf.png) no-repeat left 0; padding:6px 0 0 40px; font-weight:600; font-family: 'janda_safe_and_soundregular';}
+.middle_container .container1 .leftpanel p{ margin-top:10px; padding-left:40px; font-size:16px;	}
+.middle_container .container1 .rightpanel{ float:left; text-transform:capitalize; margin-left:50px;}
+.middle_container .container1 .rightpanel .cntr_info{ margin:8px 0 13px 0 ; padding-left:40px;}
+.middle_container .container1 .rightpanel h2{  color:#5abc6d; font-size:18px; font-weight:normal; margin-bottom:5px}
+
+
+.middle_container .container2{ background:#5bb65e; }
+.middle_container .container2 .container2_inner{ margin:0 0 0 33px;float:left;}
+.middle_container .container2 .img{ float:left;}
+.middle_container .container2 .container2_inner h1{ font-family: 'janda_safe_and_soundregular'; text-transform:capitalize; color:#fff; font-size:18px; background:url(../images/leaf2.png) no-repeat  left 0; padding:10px 0 10px 40px; margin-top:8px; font-weight:normal;}
+.middle_container .container2 .container2_inner .box1{ float:left; width:151px; margin:20px 30px 20px 0;}
+.middle_container .container2 .container2_inner .box1 h2{ font-family: 'janda_safe_and_soundregular';  font-weight:bold; color:#fff; font-size:17px; font-weight:normal; margin-bottom:10px;}
+.middle_container .container2 .container2_inner .box1 p{ color:#fff; font-size:13px;}
+
+.middle_container .container3{ padding:5px 33px;}
+.middle_container .container3 .box1{ float:left; width:269px; margin:20px 22px 20px 0;}
+.middle_container .container3 .box1 h1{ font-family: 'janda_safe_and_soundregular';  font-weight:bold; text-transform:capitalize; color:#8e6c53; font-size:18px; background:url(../images/leaf.png) no-repeat  left 0; padding:6px 0 0 40px; font-weight:600;}
+.middle_container .container3 .box1 p{ color:#9c775f;  padding-left:33px; font-size:14px; }
+.middle_container .container3 .box1 .image{ margin-left:33px;}
+.middle_container .container3 .box1 .image img{width:100%; margin:10px 0;}
+.link_nxt{ float:right;}
+.footer{padding:20px 0; font-size:14px;}
+.footer .copy{ float:left;  margin-left:60px;}
+.footer ul.links{ float:right; margin-right:33px;}
+.footer ul.links li{ list-style:none; border-left:1px solid #000; padding:0 20px; float:left;}
+.footer ul.links li:first-child{ border:none;}
+.footer ul.links li a{ color:#000;}
+
+
+
+/*----innerpage css start here---*/
+.middle_container .innerpage{ padding:21px 50px 20px 30px;}
+.middle_container .innerpage h1{ font-family: 'janda_safe_and_soundregular';  color:#8e6c53; font-size:18px;  font-weight:600; background:url(../images/leaf.png) no-repeat; padding:6px 0 0 40px;}
+
+
+.middle_container .innerpage .infobox{ margin:0 0 30px 43px; float:left}
+.middle_container .innerpage h2{ font-family: 'janda_safe_and_soundregular';  text-transform:capitalize; color:#5abc6d; font-size:17px; padding:6px 0 0 0; font-weight:600;}
+.middle_container .innerpage p.heading{margin:10px 0 30px 43px; font-size:16px; font-weight:bold;}
+.middle_container .innerpage p{ margin:10px 0 40px 0; font-size:16px;}
+.middle_container .innerpage ul.listing{ }
+.middle_container .innerpage ul.listing li{ list-style: none;}
+.middle_container .innerpage ul.listing li .list{ float:left; min-width:33px;}
+.middle_container .innerpage ul.listing li .text{ float:left; width:763px}
+.middle_container .innerpage p.text2{margin:10px 0 30px 43px;}
+
+/*----gallery css start here---*/
+.gallery{ float:right; }
+.leftcontent{ width:220px; float:left; margin-left:44px; margin:30px 0 0 0;}
+.leftcontent h1{ margin-bottom:30px;}
+
+.fl_right{float:right; width:594px;  margin:30px 0 0 0;}
+.leftcontent h1{}
+.middle_container .innerpage p{ margin:30px 0 10px 0; font-size:16px;}
+.fl_right ul li{ float:left; width:32.6%; margin:0 5px 5px 0; list-style:none;}
+.fl_right ul li img{ width:100%;}
+.fl_right ul li a{ float:left; line-height:0;}
+.fl_right ul li.last{ margin-right:0;}
+.fl_right h1{ margin-bottom:33px;}
+
+
+.textboxinner{ margin-bottom:20px;}
+.textboxinner p{margin:10px 0 30px 43px!important;}
+.textboxinner p.heading2{margin:10px 0 30px 43px; font-size:16px; font-weight:bold;}
+.textboxinner h2{font-family: 'janda_safe_and_soundregular';  font-weight:bold; color:#fff; font-size:17px; font-weight:normal; margin-bottom:10px;}
+
+
+/* portfolio css start */
+.infobox p.heading3{ font-weight:bold!important; margin:30px 0;}
+.middle_container .innerpage ul.listing2{ }
+.middle_container .innerpage ul.listing2 li{ list-style: none; background:url(../images/leaf3.jpg) no-repeat; padding-left:30px;}
+.textboxinner{ clear:both;}
+.infobox.two{ width:100%!important;}
+.infobox.two p{margin-top:10px!important;}
+
+
+.textboxinner .textbox h1{ font-family: 'janda_safe_and_soundregular'; text-transform:capitalize; color:#8E6C53; font-size:16px; background: url(../images/leaf3.jpg) no-repeat  13px 4px; padding:10px 0 10px 40px; margin-top:8px; font-weight:normal;}
+.textboxinner .textbox p{margin-top:0px!important;}
+.textboxinner .textbox a.victoria{ float:left; margin:40px 0 50px 43px}
+.textboxinner p.text3 { float:left; margin:60px 0 0 25px!important;}
+
+/* Additonal css added by vipul singhal */
+.textboxinner .textbox h1 a { color:#8E6C53;}
+.textboxinner h1 a { color:#8E6C53;}
+.call-area {
+    padding-top: 5px;
+    margin: 10px 0 0;
+}
+.nav ul li ul.biggerWidth {width:410px;}

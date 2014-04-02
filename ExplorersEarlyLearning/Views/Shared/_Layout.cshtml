@@ -1,0 +1,62 @@
+﻿@model ExplorersEarlyLearning.Models.ViewModelBase
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>  
+    
+   
+  
+</head>
+<body>
+
+    <div id="wrapper">
+<!--- header start here --->
+	<div class="header">
+        <div class="logo"><img src="@Url.Content("~/Content/images/logo.png")" alt="logo"></div>
+         
+            <div class="callbox_outer">
+                <div class="joinbox_outer">
+                 To join our waitlist<a href="http://www.explorersearlylearning.com.au/enrollment.aspx" class="enrol_btn">Enrol Now</a>
+                </div>
+                 <div class="joinbox_outer">
+                    <a href="https://www.qkeylm.com.au/QKeYLM/Account/LogOn?ReturnUrl=%2fQKeYLM%2f#" class="enrol_btn">Family Login</a>
+                </div>
+                <div class="call-area">Call us:<span class="phn">03 9098 6010</span></div><!--call-area--> 	
+            </div>
+            <div class="clear"></div>
+            <div class="nav">
+                @ExplorersEarlyLearning.HtmlHelpers.NavigationHelper.NavMenu(Model.NavCurrentIndex,Model.NavSubCurrentIndex)
+                <div class="ribbon_lft"></div>
+                <div class="ribbon_rgt"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+<!--- mdiddle container start here --->
+	<div class="wrapper_inner" >      
+        <div class="middle_container">
+         	@RenderBody()
+        </div>
+        
+<!--- footer start here --->
+
+        <div class="footer">
+   	    <img src="@Url.Content("~/Content/images/bg_footer.jpg")"  alt="footerbg"> 
+            <p  class="copy">2014 explorers-early learning</p>
+           @* <ul class="links">
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Copyrights</a></li>
+                <li><a href="#">Site Map</a></li>
+            </ul>*@
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+</html>
