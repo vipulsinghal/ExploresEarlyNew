@@ -29,10 +29,15 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult OnlinePortfoliosMethod()
         {
-            return View(new ViewModelBase() { NavCurrentIndex = 3, NavSubCurrentIndex = 3 });
+            return View(new ViewModelBase() { NavCurrentIndex = 3, NavSubCurrentIndex = 4 });
         }
 
         public ActionResult EnvironmentalFocus()
+        {
+            return View(new ViewModelBase() { NavCurrentIndex = 3, NavSubCurrentIndex = 3 });
+        }
+
+        public ActionResult KindergartenProgram()
         {
             return View(new ViewModelBase() { NavCurrentIndex = 3, NavSubCurrentIndex = 4 });
         }

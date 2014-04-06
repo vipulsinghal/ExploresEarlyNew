@@ -27,7 +27,7 @@ namespace ExplorersEarlyLearning.HtmlHelpers
         {
             List<MenuItem> menuItems = new List<MenuItem>() { 
                       new MenuItem("Home","/Home",1),new MenuItem("Philosophy","/Philosophy",2),
-                      new MenuItem("Programs","/Programs",3),new MenuItem("Centers","/Centers",4),
+                      new MenuItem("Programs","/Programs",3),new MenuItem("Centres","#",4),
                       new MenuItem("Portfolios","/Portfolios",5),new MenuItem("Employment","/Employment",6),
                       new MenuItem("Contact us","/Contactus",7)
                 };
@@ -56,18 +56,18 @@ namespace ExplorersEarlyLearning.HtmlHelpers
                 //li.InnerHtml += "<ul><li><a href=''>Test1</a></li><li><a href=''>Test2</a></li></ul>";
 
                   if(item.Name=="Programs"){
-                      
-                      li.InnerHtml += "<ul class='biggerWidth'><li><a href='/Programs/AnEmergent' "+(subselectedIndex==1?"class='active'":"")+">Emergent Cirriculum</a></li>" +
+
+                      li.InnerHtml += "<ul class='biggerWidth'><li><a href='/Programs/AnEmergent' " + (subselectedIndex == 1 ? "class='active'" : "") + ">Emergent Curriculum</a></li>" +
                             "<li><a href='/Programs/EarlyYearsFramework' " + (subselectedIndex == 2 ? "class='active'" : "") + ">Early Years Framework</a></li>" +
-                            "<li><a href='/Programs/OnlinePortfoliosMethod' " + (subselectedIndex == 3 ? "class='active'" : "") + ">An Online Portfolio Method of Planning</a></li>" +
-                            "<li><a href='/Programs/EnvironmentalFocus' " + (subselectedIndex == 4 ? "class='active'" : "") + ">Strong Environmental Focus</a></li>" +
-                            "<li><a href='/Programs/ReadyProgram' " + (subselectedIndex == 5 ? "class='active'" : "") + ">Ready Program for 4 yr old Kinder</a></li></ul>";
+                            "<li><a href='/Programs/EnvironmentalFocus' " + (subselectedIndex == 3 ? "class='active'" : "") + ">Environmental Program</a></li>" +
+                            "<li><a href='/Programs/KindergartenProgram' " + (subselectedIndex == 4 ? "class='active'" : "") + ">Kindergarten Program</a></li>" +
+                            "<li><a href='/Programs/ReadyProgram' " + (subselectedIndex == 5 ? "class='active'" : "") + ">Ready Program</a></li></ul>";
                     }
 
-                  if (item.Name == "Centers")
+                  if (item.Name == "Centres")
                   {
-                      li.InnerHtml += "<ul><li><a href='/Centers/AbbotsfordRichmond' " + (subselectedIndex == 6 ? "class='active'" : "") + ">Abbotsford / Richmond</a></li>" +
-                                "<li><a href='/Centers/MaidstoneMaribyrnong' " + (subselectedIndex == 7 ? "class='active'" : "") + ">Maidstone / Maribyrnong</a></li></ul>";
+                      li.InnerHtml += "<ul><li><a href='/Centres/AbbotsfordRichmond' " + (subselectedIndex == 6 ? "class='active'" : "") + ">Abbotsford / Richmond</a></li>" +
+                                "<li><a href='/Centres/MaidstoneMaribyrnong' " + (subselectedIndex == 7 ? "class='active'" : "") + ">Maidstone / Maribyrnong</a></li></ul>";
                   }
 
                 ul.InnerHtml += li.ToString();

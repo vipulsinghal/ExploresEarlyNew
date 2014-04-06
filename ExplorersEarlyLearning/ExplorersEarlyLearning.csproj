@@ -123,7 +123,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\CentersController.cs" />
+    <Compile Include="Controllers\CentresController.cs" />
     <Compile Include="Controllers\ContactusController.cs" />
     <Compile Include="Controllers\EmploymentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -166,6 +166,7 @@
     <Content Include="Content\gallery\img3.jpg" />
     <Content Include="Content\gallery\img4.jpg" />
     <Content Include="Content\gallery\imgmain.jpg" />
+    <Content Include="Content\images\babies.jpg" />
     <Content Include="Content\images\background_body.jpg" />
     <Content Include="Content\images\bg_border.png" />
     <Content Include="Content\images\bg_container.jpg" />
@@ -186,6 +187,7 @@
     <Content Include="Content\images\img1.png" />
     <Content Include="Content\images\img2.png" />
     <Content Include="Content\images\img3.png" />
+    <Content Include="Content\images\kinders.jpg" />
     <Content Include="Content\images\leaf.png" />
     <Content Include="Content\images\leaf2.png" />
     <Content Include="Content\images\leaf3.jpg" />
@@ -231,6 +233,7 @@
     <Content Include="Content\images\prettyPhoto\light_square\sprite.png" />
     <Content Include="Content\images\riboon_lft.png" />
     <Content Include="Content\images\riboon_rgt.png" />
+    <Content Include="Content\images\todlers.jpg" />
     <Content Include="Content\images\trans.png" />
     <Content Include="Content\images\TreeNode\arrows.png" />
     <Content Include="Content\images\TreeNode\icons.png" />
@@ -304,16 +307,17 @@
     <Content Include="Views\Programs\Index.cshtml" />
     <Content Include="Views\Programs\AnEmergent.cshtml" />
     <Content Include="Views\Contactus\Index.cshtml" />
-    <Content Include="Views\Centers\Index.cshtml" />
+    <Content Include="Views\Centres\Index.cshtml" />
     <Content Include="Views\Programs\EarlyYearsFramework.cshtml" />
     <Content Include="Views\Programs\OnlinePortfoliosMethod.cshtml" />
     <Content Include="Views\Programs\EnvironmentalFocus.cshtml" />
     <Content Include="Views\Programs\ReadyProgram.cshtml" />
-    <Content Include="Views\Centers\AbbotsfordRichmond.cshtml" />
-    <Content Include="Views\Centers\MaidstoneMaribyrnong.cshtml" />
+    <Content Include="Views\Centres\AbbotsfordRichmond.cshtml" />
+    <Content Include="Views\Centres\MaidstoneMaribyrnong.cshtml" />
     <Content Include="video\font\vjs.eot" />
     <Content Include="video\font\vjs.ttf" />
     <Content Include="video\font\vjs.woff" />
+    <Content Include="Views\Programs\KindergartenProgram.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

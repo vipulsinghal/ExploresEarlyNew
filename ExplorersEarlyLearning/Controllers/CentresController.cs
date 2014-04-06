@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace ExplorersEarlyLearning.Controllers
 {
-    public class CentersController : Controller
+    public class CentresController : Controller
     {
         //
         // GET: /Centers/

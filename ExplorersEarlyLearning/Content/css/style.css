@@ -15,7 +15,8 @@
 body{
 	margin:0px;
 	padding:0px;		
-	color:#231f20;
+	/*color:#231f20;*/
+    color: #8E6C53;
 	font-family: Arial, Helvetica, sans-serif;
 	background: url(../images/background_body.jpg) center no-repeat fixed #ccc;
 	background-size:cover;
@@ -48,6 +49,15 @@ p{ line-height:20px;}
 .callbox_outer .joinbox_outer{ color:#805b3f; font-size:18px; float:right; line-height:58px; font-family: 'janda_safe_and_soundregular'; font-weight:600;}
 .callbox_outer .joinbox_outer a.enrol_btn{ float:right; background:url(../images/btn_enrol.jpg) repeat-x; border-radius:12px; padding:0 8px; margin-left:18px; border:1px solid #66b051; text-decoration:underline; color:#fff; line-height:53px; text-transform:uppercase; font-weight:normal;}
 
+.callbox_outer .joinbox_outer a.enrol_btn {
+   line-height: 32px;
+   padding: 6px 0 0;
+   text-align: center;
+   width: 136px;
+   margin-top:7px;
+   border-radius: 8px;
+}
+
 
 /*----nav css start here---*/
 .nav{background: url(../images/navbar_bg.png) repeat-x;  margin-bottom:-10px;  float:left; width:100%; position:relative;}
@@ -79,7 +89,7 @@ p{ line-height:20px;}
 .middle_container .container1 .leftpanel p{ margin-top:10px; padding-left:40px; font-size:16px;	}
 .middle_container .container1 .rightpanel{ float:left; text-transform:capitalize; margin-left:50px;}
 .middle_container .container1 .rightpanel .cntr_info{ margin:8px 0 13px 0 ; padding-left:40px;}
-.middle_container .container1 .rightpanel h2{  color:#5abc6d; font-size:18px; font-weight:normal; margin-bottom:5px}
+.middle_container .container1 .rightpanel h2{  /*color:#5abc6d;*/ font-size:18px; font-weight:normal; margin-bottom:5px}
 
 
 .middle_container .container2{ background:#5bb65e; }
@@ -112,7 +122,7 @@ p{ line-height:20px;}
 
 
 .middle_container .innerpage .infobox{ margin:0 0 30px 43px; float:left}
-.middle_container .innerpage h2{ font-family: 'janda_safe_and_soundregular';  text-transform:capitalize; color:#5abc6d; font-size:17px; padding:6px 0 0 0; font-weight:600;}
+.middle_container .innerpage h2{ font-family: 'janda_safe_and_soundregular';  text-transform:capitalize; /*color:#5abc6d;*/ font-size:17px; padding:6px 0 0 0; font-weight:600;}
 .middle_container .innerpage p.heading{margin:10px 0 30px 43px; font-size:16px; font-weight:bold;}
 .middle_container .innerpage p{ margin:10px 0 40px 0; font-size:16px;}
 .middle_container .innerpage ul.listing{ }
@@ -160,7 +170,45 @@ p{ line-height:20px;}
 .textboxinner .textbox h1 a { color:#8E6C53;}
 .textboxinner h1 a { color:#8E6C53;}
 .call-area {
-    padding-top: 5px;
-    margin: 10px 0 0;
+    margin: 5px 0 0;
 }
 .nav ul li ul.biggerWidth {width:410px;}
+
+.middle_container .container1 .rightpanel h2{  color:#8E6C53;}
+.middle_container .container1 h1 a {
+    color: #8E6C53;
+}
+
+.middle_container .container2 .container2_inner h1 a {
+    color: #FFFFFF;
+}
+.middle_container .container3 .box1 h1 a {
+    color: #8E6C53;
+}
+.callbox_outer .joinbox_outer a.enrol_btn{line-height: 32px;padding: 7px 8px 0 8px;}
+.callbox_outer .BottomMargin {
+    padding-bottom: 20px; margin-top: -10px;
+}
+.middle_container .container2 .container2_inner .box1 h2 {font-size:16px}
+
+.middle_container .innerpage h2 {
+    font-size: 16px;
+    color:#8E6C53;
+    text-transform:none;
+}
+
+.middle_container .innerpage h1.shortFontHeading {
+    font-size: 16px;
+}
+
+.middle_container .innerpage h2.normalWeight {
+    font-weight:normal;
+}
+
+
+
+.textboxinner .textbox h1.LeafBK {
+     background: url("../images/leaf.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.middle_container .innerpage .infoboxLeft{ margin:0 0 0px 43px; float:left}
