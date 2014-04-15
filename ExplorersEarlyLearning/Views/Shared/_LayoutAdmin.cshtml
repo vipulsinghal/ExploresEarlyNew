@@ -1,4 +1,4 @@
-﻿@model ExplorersEarlyLearning.Models.ViewModelBase
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +11,43 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/treenode.js")"></script>
 </head>
 <body>
+    <header id="header">
+        <a title="Back to site manager" href="/Sites/Home/SiteMap" class="logo">
+            Explores Early Learning
+        </a>
+
+        <ul class="panel">
+            <li>
+                <a target="_blank" href="#">Manage Task
+                </a>
+            </li>
+            <li><a target="_blank" href="#">Manage Page</a></li>
+            <li><a target="_blank" href="#">Manage Configuration</a></li>
+        </ul>
+
+        <ul class="quicklinks">
+
+            <li class="last j_DropDown">
+                <a>
+                    <img src="/Content/Images/invis.gif" class="icon profile" />
+                    <span>vipulsinghal</span>
+                </a>
+                <ul class="j_DropDownContent hide" style="">
+                    <li>
+                        <a href="/Account/Users/ChangeLanguage?return=%2FSites%2FPage%2FEdit%3FsiteName%3Dvipulsinghal%26repositoryName%3Dvipulsinghal%26UUID%3DArticles%26return%3D%252FSites%252FHome%252FSiteMap%253FsiteName%253Dvipulsinghal%2526repositoryName%253Dvipulsinghal">Change language</a>
+                    </li>
+                    <li>
+                        <a href="/Account/Users/ChangePassword?return=%2FSites%2FPage%2FEdit%3FsiteName%3Dvipulsinghal%26repositoryName%3Dvipulsinghal%26UUID%3DArticles%26return%3D%252FSites%252FHome%252FSiteMap%253FsiteName%253Dvipulsinghal%2526repositoryName%253Dvipulsinghal">Change password</a>
+                    </li>
+                    <li>
+                        <a href="/Account/Logon/SignOut">Sign out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </header>
+ 
 
     <div id="wrapper">
 
@@ -23,5 +60,6 @@
     </div>
     
 </div>
+
 </body>
 </html>

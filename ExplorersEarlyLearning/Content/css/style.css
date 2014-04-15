@@ -43,7 +43,7 @@ p{ line-height:20px;}
 /*----header div css code start here---*/
 .header{ width:940px; margin:0 auto; background-image: url(../images/trans.png); background-repeat:no-repeat; background-size:cover;  padding:10px 0 0 0;}
 .logo{ margin:0px 0 0 26px; float:left;}
-.callbox_outer{ float:right; width:40%; margin:0 26px 0 0;}
+.callbox_outer{ float:right; width:50%; margin:0 26px 0 0;}
 .call-area{float:right; width:100%;font-family: 'janda_safe_and_soundregular'; margin:65px 0 0 0; text-align:right; color:#805b3f; font-size:22px; font-weight:600;}
 .call-area .phn{ float:right; color:#5bb65e; padding-left:6px}
 .callbox_outer .joinbox_outer{ color:#805b3f; font-size:18px; float:right; line-height:58px; font-family: 'janda_safe_and_soundregular'; font-weight:600;}
@@ -74,8 +74,9 @@ p{ line-height:20px;}
 .nav ul li ul{ display:none; position:absolute; z-index:999; left:-5px; top:44px; background:#5bb65e; width:280px; border-radius:0 0 8px 8px; padding:0 10px 10px 10px;}
 .nav ul li:hover ul{ display:block; }
 .nav ul li ul li{ width:100%;  }
-.nav ul li ul li a{ background:none; padding-left:0px; background-position: right 65px}
+.nav ul li ul li a{ background-image:none; padding-left:0px; background-position: right 65px}
 .nav ul li ul li:hover a, .nav ul li ul li a.active{background:url(../images/navbg3.png) no-repeat right 35px!important; }
+
 
 
 
@@ -211,4 +212,24 @@ p{ line-height:20px;}
      background: url("../images/leaf.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 
-.middle_container .innerpage .infoboxLeft{ margin:0 0 0px 43px; float:left}
+.middle_container .innerpage .infoboxLeft{ margin:0 0 10px 43px; float:left}
+.middle_container .container2 .container2_inner .box1 p{ font-size:14px;}
+
+.middle_container .innerpage .infobox .heading2 { font-size:16px;
+}
+
+.joinbox_outer span{float:left;} 
+.joinbox_outer a{float:left;}
+
+.textboxinner .logoHeading {
+    width: 65%;
+    float: left;
+    margin-right: 30px;
+}
+
+.nav ul li ul li:hover a, .nav ul li ul li a.active{background-image:url(../images/navbg3.png); background-position: right 35px; background-repeat:no-repeat;}
+.nav ul li:first-child a:hover, .nav ul li:first-child a.active{background-image:url(../images/navbg3.png); background-position: right 35px; background-repeat:no-repeat;}
+.joinbox_outer span {
+    float: left;
+    padding-top: 3px;
+}

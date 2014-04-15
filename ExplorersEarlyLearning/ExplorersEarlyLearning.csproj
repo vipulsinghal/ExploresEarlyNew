@@ -130,10 +130,37 @@
     <Compile Include="Controllers\PhilosophyController.cs" />
     <Compile Include="Controllers\PortfoliosController.cs" />
     <Compile Include="Controllers\ProgramsController.cs" />
+    <Compile Include="DAL\ExploresEarlyLearningContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\NavigationHelper.cs" />
+    <Compile Include="Migrations\201404091655417_InitialCreate.cs" />
+    <Compile Include="Migrations\201404091655417_InitialCreate.Designer.cs">
+      <DependentUpon>201404091655417_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404091741248_Menu.cs" />
+    <Compile Include="Migrations\201404091741248_Menu.Designer.cs">
+      <DependentUpon>201404091741248_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404110743006_Menu1.cs" />
+    <Compile Include="Migrations\201404110743006_Menu1.Designer.cs">
+      <DependentUpon>201404110743006_Menu1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404141606203_Menu2.cs" />
+    <Compile Include="Migrations\201404141606203_Menu2.Designer.cs">
+      <DependentUpon>201404141606203_Menu2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404141630449_Menu3.cs" />
+    <Compile Include="Migrations\201404141630449_Menu3.Designer.cs">
+      <DependentUpon>201404141630449_Menu3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404151628399_Menu4.cs" />
+    <Compile Include="Migrations\201404151628399_Menu4.Designer.cs">
+      <DependentUpon>201404151628399_Menu4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -318,6 +345,30 @@
     <Content Include="video\font\vjs.ttf" />
     <Content Include="video\font\vjs.woff" />
     <Content Include="Views\Programs\KindergartenProgram.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201404091655417_InitialCreate.resx">
+      <DependentUpon>201404091655417_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404091741248_Menu.resx">
+      <DependentUpon>201404091741248_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404110743006_Menu1.resx">
+      <DependentUpon>201404110743006_Menu1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404141606203_Menu2.resx">
+      <DependentUpon>201404141606203_Menu2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404141630449_Menu3.resx">
+      <DependentUpon>201404141630449_Menu3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404151628399_Menu4.resx">
+      <DependentUpon>201404151628399_Menu4.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
