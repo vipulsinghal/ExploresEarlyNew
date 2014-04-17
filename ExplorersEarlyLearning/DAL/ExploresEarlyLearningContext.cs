@@ -12,6 +12,7 @@ namespace ExplorersEarlyLearning.DAL
         public class ExploresEarlyLearningContext : DbContext
         {
             public DbSet<Menu> Menus { get; set; }
+            public DbSet<User> Users { get; set; }
             protected override void OnModelCreating(DbModelBuilder modelBuilder)
             {
                 modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

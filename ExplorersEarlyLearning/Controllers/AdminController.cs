@@ -7,9 +7,12 @@ using System.Web;
 using System.Web.Mvc;
 using ExplorersEarlyLearning.Models;
 using ExplorersEarlyLearning.DAL;
+using WebMatrix.WebData;
+using System.Web.Security;
 
 namespace ExplorersEarlyLearning.Controllers
 {
+    
     public class AdminController : Controller
     {
         private ExploresEarlyLearningContext db = new ExploresEarlyLearningContext();
@@ -19,9 +22,11 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Index()
         {
-            //return View(db.Menus.ToList());
-            //IList<Menu> menuList = (IList<Menu>)
-            //(db.Menus.Select(m => m.IsActive == true).ToList());
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            {
+                Response.Redirect("~/Account/Login");
+            }
+
             List<Menu> menuList = (from menu in db.Menus
              where menu.IsActive==true
              select menu).ToList();
@@ -34,6 +39,11 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Details(int id = 0)
         {
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            {
+                Response.Redirect("~/Account/Login");
+            }
+
             Menu menu = db.Menus.Find(id);
             if (menu == null)
             {
@@ -50,7 +60,10 @@ namespace ExplorersEarlyLearning.Controllers
             //List<Menu> menuList = (from menu in db.Menus
             //                       where menu.IsActive == true
             //                       select menu).ToList();
-
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            {
+                Response.Redirect("~/Account/Login");
+            }
             return View();
         }
 
@@ -59,6 +72,10 @@ namespace ExplorersEarlyLearning.Controllers
             //List<Menu> menuList = (from menu in db.Menus
             //                       where menu.IsActive == true
             //                       select menu).ToList();
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            {
+                Response.Redirect("~/Account/Login");
+            }
             Menu menu = new Menu();
             menu.ParentMenuId = id;
             return View("Create",menu);
@@ -84,6 +101,10 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            {
+                Response.Redirect("~/Account/Login");
+            }
             Menu menu = db.Menus.Find(id);
             if (menu == null)
             {
@@ -113,6 +134,10 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Delete(int id = 0)
         {
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            {
+                Response.Redirect("~/Account/Login");
+            }
             Menu menu = db.Menus.Find(id);
             if (menu == null)
             {

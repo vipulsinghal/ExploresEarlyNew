@@ -116,12 +116,19 @@
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CentresController.cs" />
     <Compile Include="Controllers\ContactusController.cs" />
@@ -131,6 +138,7 @@
     <Compile Include="Controllers\PortfoliosController.cs" />
     <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="DAL\ExploresEarlyLearningContext.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,8 +167,18 @@
     <Compile Include="Migrations\201404151628399_Menu4.Designer.cs">
       <DependentUpon>201404151628399_Menu4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404171549126_User.cs" />
+    <Compile Include="Migrations\201404171549126_User.Designer.cs">
+      <DependentUpon>201404171549126_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404171933418_User1.cs" />
+    <Compile Include="Migrations\201404171933418_User1.Designer.cs">
+      <DependentUpon>201404171933418_User1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -349,6 +367,8 @@
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201404091655417_InitialCreate.resx">
@@ -368,6 +388,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404151628399_Menu4.resx">
       <DependentUpon>201404151628399_Menu4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404171549126_User.resx">
+      <DependentUpon>201404171549126_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404171933418_User1.resx">
+      <DependentUpon>201404171933418_User1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

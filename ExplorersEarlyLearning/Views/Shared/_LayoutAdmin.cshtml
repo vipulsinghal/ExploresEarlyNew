@@ -11,7 +11,7 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/treenode.js")"></script>
 </head>
 <body>
-    <header id="header">
+   @* <header id="header">
         <a title="Back to site manager" href="/Sites/Home/SiteMap" class="logo">
             Explores Early Learning
         </a>
@@ -47,12 +47,62 @@
         </ul>
 
     </header>
- 
+ *@
+    <header id="header">
+        <a class="logo" href="/Admin" title="Home">
+            Explores Early Learning
+        </a>
 
+        <ul class="panel">
+            <li class="j_DropDown">
+                <a>
+                    <img class="icon save" src="/Content/Images/invis.gif">
+
+                    <img class="icon arrow small white-down" src="/Content/Images/invis.gif">
+                    Save
+                </a>
+                <ul style="" class="j_DropDownContent hide">
+                    <li><a data-ajaxform="">Save</a></li>
+                    <li><a data-ajaxform="" href="/Sites/Page/Save?siteName=vipulsinghal&amp;repositoryName=vipulsinghal&amp;UUID=Articles&amp;return=%2FSites%2FHome%2FSiteMap%3FsiteName%3Dvipulsinghal%26repositoryName%3Dvipulsinghal&amp;saveAsDraft=true">Save as draft</a></li>
+                </ul>
+            </li>
+            <li><a href="#" target="_blank">
+                <img class="icon preview" src="/Content/Images/invis.gif">
+                Preview</a></li>
+            <li><a href="#">
+                <img class="icon cancel" src="/Content/Images/invis.gif">
+                Back</a></li>
+        </ul>
+
+        <ul class="quicklinks">
+
+            <li class="last j_DropDown">
+                <a>
+                    <img class="icon profile" src="/Content/Images/invis.gif">
+
+                    <img class="icon arrow small white-down" src="/Content/Images/invis.gif">
+                    vipulsinghal
+                </a>
+                <ul style="" class="j_DropDownContent hide">
+                    <li>
+                        <a href="#">Change language</a>
+                    </li>
+                    <li>
+                        <a href="#">Change password</a>
+                    </li>
+                    <li>
+                        <a href="/Account/SignOut">Sign out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </header>
+    <div style="clear:both;">&nbsp;</div>
     <div id="wrapper">
 
 	<div class="wrapper_inner" >      
-        <div class="middle_container">
+        <div class="middle_container" style="margin-left:20px;">
          	@RenderBody()
         </div>
         
