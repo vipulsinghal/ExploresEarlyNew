@@ -184,9 +184,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\gallery.css" />
+    <Content Include="Content\css\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\css\jquery.custom-scrollbar.css" />
     <Content Include="Content\css\layout.css" />
     <Content Include="Content\css\prettyPhoto.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\styleAdmin.css" />
     <Content Include="Content\css\treenode.css" />
     <Content Include="Content\font\jandasafeandsound-webfont.svg" />
     <Content Include="Content\font\myriadpro-boldcond_0-webfont.svg" />
@@ -211,6 +214,7 @@
     <Content Include="Content\gallery\img3.jpg" />
     <Content Include="Content\gallery\img4.jpg" />
     <Content Include="Content\gallery\imgmain.jpg" />
+    <Content Include="Content\images\arrows.png" />
     <Content Include="Content\images\babies.jpg" />
     <Content Include="Content\images\background_body.jpg" />
     <Content Include="Content\images\bg_border.png" />
@@ -224,14 +228,17 @@
     <Content Include="Content\images\box1_bg_hover.jpg" />
     <Content Include="Content\images\btn_bg.jpg" />
     <Content Include="Content\images\btn_enrol.jpg" />
+    <Content Include="Content\images\centerhome_bg.jpg" />
     <Content Include="Content\images\gallery\image1.jpg" />
     <Content Include="Content\images\gallery\image2.jpg" />
     <Content Include="Content\images\gallery\image3.jpg" />
     <Content Include="Content\images\gallery\image4.jpg" />
     <Content Include="Content\images\gallery\image5.jpg" />
+    <Content Include="Content\images\icons.png" />
     <Content Include="Content\images\img1.png" />
     <Content Include="Content\images\img2.png" />
     <Content Include="Content\images\img3.png" />
+    <Content Include="Content\images\invis.gif" />
     <Content Include="Content\images\kinders.jpg" />
     <Content Include="Content\images\leaf.png" />
     <Content Include="Content\images\leaf2.png" />
@@ -276,9 +283,12 @@
     <Content Include="Content\images\prettyPhoto\light_square\default_thumbnail.gif" />
     <Content Include="Content\images\prettyPhoto\light_square\loader.gif" />
     <Content Include="Content\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\images\Ready Logo-Small.jpg" />
+    <Content Include="Content\images\Ready Logo-Small_bk.jpg" />
     <Content Include="Content\images\riboon_lft.png" />
     <Content Include="Content\images\riboon_rgt.png" />
     <Content Include="Content\images\todlers.jpg" />
+    <Content Include="Content\images\todlers_bj.jpg" />
     <Content Include="Content\images\trans.png" />
     <Content Include="Content\images\TreeNode\arrows.png" />
     <Content Include="Content\images\TreeNode\icons.png" />
@@ -300,8 +310,11 @@
     <Content Include="Content\font\pristina.woff" />
     <Content Include="Htmls\index.html" />
     <Content Include="Htmls\philosophy.html" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-prettyPhoto.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Scripts\jquery.custom-scrollbar.js" />
     <Content Include="Scripts\liteaccordion-v2.2\css\bg_noise.png" />
     <Content Include="Scripts\liteaccordion-v2.2\css\bg_stitch.png" />
     <Content Include="Scripts\liteaccordion-v2.2\css\liteaccordion.css" />

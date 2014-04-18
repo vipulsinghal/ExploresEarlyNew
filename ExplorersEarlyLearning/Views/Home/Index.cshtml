@@ -28,7 +28,16 @@
             <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
         </video>
     </div>*@
-    <div class="sliderbox">
+    <div  class="leftpanel homepagetop">
+        <h1>why explorers early learning?</h1>
+        <p>The early childhood years (birth to 6 yrs) are regarded as the foundation upon which a child’s life is constructed. From birth, young children develop socially, emotionally, cognitively and physically, acquiring the knowledge, skills and attitudes essential to their ongoing growth and development to adulthood.</p>
+        <p>
+            The children’s program at Explorers is developed by our early childhood trained staff and reflects our unique philosophy and commitment to the environment and our local community.
+                  <a href="#">
+                      <img src="@Url.Content("~/Content/images/link_arrow2.png")" alt="link"></a>
+        </p>
+    </div>
+     <div class="sliderbox">
             <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" 
              poster="@Url.Content("~/Content/images/video.jpg")" data-setup="{}">
              <source src="@Url.Content("~/video/ExplorersEarlyLearning.mp4")" type='video/mp4' />
@@ -40,17 +49,9 @@
             <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
             </video>
             </div>
-    <div class="leftpanel">
-        <h1>why explorers early learning?</h1>
-        <p>The early childhood years (birth to 6 yrs) are regarded as the foundation upon which a child’s life is constructed. From birth, young children develop socially, emotionally, cognitively and physically, acquiring the knowledge, skills and attitudes essential to their ongoing growth and development to adulthood.</p>
-        <p>
-            The children’s program at Explorers is developed by our early childhood trained staff and reflects our unique philosophy and commitment to the environment and our local community.
-                  <a href="#">
-                      <img src="@Url.Content("~/Content/images/link_arrow2.png")" alt="link"></a>
-        </p>
-    </div>
+   
 
-    <div class="rightpanel">
+    @*<div class="rightpanel">
         <h1><a href="/Centres">centres</a> <span>
             <img src="@Url.Content("~/Content/images/link_arrow.png")" alt="arrow"></span></h1>
         <div class="cntr_info">
@@ -62,6 +63,47 @@
             <h2>Maidstone/Maribyrnong</h2>
             <p>Level 1, 50 Hampstead Road,<br/>
                 Maidstone  <br/>(Corner of Emu Road)</p>
+        </div>
+    </div>*@
+
+    <div class="centerbox">
+        <div class="panel-heading"><a href="/Centres">Centres</a></div>
+        <div class="panel-body default-skin" id="outer">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#">
+                        <span class="first">Abbotsford/Richmond</span>
+                        <span class="second">3 flockhart street,<br>
+                            abbotsford</span>
+                    </a>
+                </li>
+
+                <li class="list-group-item">
+                    <a href="#">
+                        <span class="first">Maidstone/Maribyrnong</span>
+                        <span class="second">Level 1, 50 Hampstead Road,<br>
+                            Maidstone<br>
+                            (Corner of Emu Road)</span>
+                    </a>
+                </li>
+
+                <li class="list-group-item">
+                    <a href="#">
+                        <span class="first">Abbotsford/Richmond</span>
+                        <span class="second">3 flockhart street,<br>
+                            abbotsford</span>
+                    </a>
+                </li>
+
+                <li class="list-group-item">
+                    <a href="#">
+                        <span class="first">Maidstone/Maribyrnong</span>
+                        <span class="second">Level 1, 50 Hampstead Road,<br>
+                            Maidstone<br>
+                            (Corner of Emu Road)</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="clear"></div>
@@ -164,3 +206,10 @@
     <div class="clear"></div>
 </div>
 
+<link type="text/css" rel="stylesheet"  href="@Url.Content("~/Content/css/jquery.custom-scrollbar.css")"/>
+<script src="@Url.Content("~/Scripts/jquery.custom-scrollbar.js")"></script>
+<script type="text/javascript">
+    $(window).load(function () {
+        $("#inner, #outer").customScrollbar();
+    });
+</script>

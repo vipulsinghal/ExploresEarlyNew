@@ -78,11 +78,65 @@ p{ line-height:20px;}
 .nav ul li ul li:hover a, .nav ul li ul li a.active{background:url(../images/navbg3.png) no-repeat right 35px!important; }
 
 
+/* centerbox css start here*/
+.middle_container .container1{ padding:21px 33px 20px 33px;}
+.middle_container .container1 .sliderbox{ width:600px; float:left;}
+
+#outer{height:311px; width:94%;  }
+.middle_container .container1 .centerbox{ background:url(../images/centerhome_bg.jpg) no-repeat; width:260px;float:right;}
+
+
+.centerbox .panel-heading a {
+    color:#fff;
+}
+.centerbox .panel-heading{ font-family: 'janda_safe_and_soundregular'; text-transform:capitalize; color:#fff; font-size:18px; background:url(../images/leaf.png) no-repeat  5px 20px; padding:24px 0 5px 45px; margin-top:8px; font-weight:normal;}
+.centerbox .panel-heading.panel-purple2 {
+	background: #82627e;
+}
+.centerbox .panel .img_left{ margin:20px 0;}
+.centerbox .panel .panel-body .heading1 {
+	color: #1598cc;
+	font-weight: bold; 
+}
+.centerbox .panel .panel-body p{font-size:15px;}
+.centerbox ul.list-group{ border:none;  margin-left:30px; width:197px; }
+.centerbox .list-group-item:last-child{border-color:#fff!important;}
+.centerbox ul.list-group li.list-group-item {
+	padding:15px 0;
+	font-size: 14px;
+	color: #666;
+	width:100%;
+	list-style:none;
+}
+.centerbox ul.list-group li.list-group-item a{ color:#fff; display:block;}
+.centerbox ul.list-group li.list-group-item span.first {
+	font-weight: normal;
+	width: 100%;
+	float: left;
+	font-family:janda_safe_and_soundregular;
+	font-size:14px;	
+}
+.centerbox ul.list-group li.list-group-item span.second {
+	line-height:14px;
+	
+
+}
+.centerbox .heading_title {
+	font-family: 'Ultra';
+	color: #333333;
+	font-size: 28px;
+}
+centerbox .heading_title a {
+font-size: 13px;
+color: #1598cc;
+font-family: Arial, Helvetica, sans-serif;
+text-decoration: none;
+}
 
 
 /*----middle_container css start here---*/
-.middle_container .container1{ padding:21px 33px 20px 33px;}
-.middle_container .container1 .sliderbox{ margin:0 auto 20px auto; width:802px;}
+.leftpanel.homepagetop{ width:100%!important; margin-bottom:40px;}
+
 .middle_container .container1 .sliderbox img{ width:100%;}
 .middle_container .container1 .leftpanel{ float:left}
 .middle_container .container1 .leftpanel{ width:556px;}
@@ -90,7 +144,7 @@ p{ line-height:20px;}
 .middle_container .container1 .leftpanel p{ margin-top:10px; padding-left:40px; font-size:16px;	}
 .middle_container .container1 .rightpanel{ float:left; text-transform:capitalize; margin-left:50px;}
 .middle_container .container1 .rightpanel .cntr_info{ margin:8px 0 13px 0 ; padding-left:40px;}
-.middle_container .container1 .rightpanel h2{  /*color:#5abc6d;*/ font-size:18px; font-weight:normal; margin-bottom:5px}
+.middle_container .container1 .rightpanel h2{  color:#5abc6d; font-size:18px; font-weight:normal; margin-bottom:5px}
 
 
 .middle_container .container2{ background:#5bb65e; }
@@ -107,6 +161,7 @@ p{ line-height:20px;}
 .middle_container .container3 .box1 p{ color:#9c775f;  padding-left:33px; font-size:14px; }
 .middle_container .container3 .box1 .image{ margin-left:33px;}
 .middle_container .container3 .box1 .image img{width:100%; margin:10px 0;}
+
 .link_nxt{ float:right;}
 .footer{padding:20px 0; font-size:14px;}
 .footer .copy{ float:left;  margin-left:60px;}
@@ -233,3 +288,4 @@ p{ line-height:20px;}
     float: left;
     padding-top: 3px;
 }
+
