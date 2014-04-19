@@ -1,0 +1,155 @@
+﻿@model List<User>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using ExplorersEarlyLearning.Models
+<div id="main">
+
+    <div class="topbar clearfix">
+        <h1 class="title">Users List</h1>
+        <h1 style="float:right;font-size:16px;margin-right:20px;"><a href="/Account/Add" >Add User</a></h1>
+    </div>
+
+    <div class="common-table fixed">
+        <div class="thead">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="sort" style="width: 20%;">
+                            <a href="#">User Name<img src="@Url.Content("~/Content/Images/invis.gif")" class="icon arrow"></a>
+                        </th>
+
+                       @* <th class="sort" style="width: 107px;">
+                            <a href="#">Show in menu<img src="@Url.Content("~/Content/Images/invis.gif")" class="icon arrow"></a>
+                        </th>
+                        <th class="sort" style="width: 223px;">
+                            <a href="#">Display text<img src="@Url.Content("~/Content/Images/invis.gif")" class="icon arrow"></a>
+                        </th>
+                        <th class="sort" style="width: 288px;">
+                            <a href="#">Site<img src="@Url.Content("~/Content/Images/invis.gif")" class="icon arrow"></a>
+                        </th>*@
+                         <th style="width: 20%;">First Name
+                        </th>
+                         <th style="width: 20%;">Last Name
+                        </th>
+                        <th style="width: 10%;">Activiated
+                        </th>
+                        <th style="width: 30%;">Actions
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbody">
+            <table>
+                <tbody class="ui-sortable" style="margin-left:0px;">
+                    @if (Model.Count > 0)
+                    {
+                        foreach (User user in Model)
+                        {
+                        <tr data-pagename="Search" class="localized published" style="cursor: move;">
+                        <td  style="width: 20%;">
+                            <a href="/Account/Edit/@user.UserId">
+                                @user.UserName</a>
+                        </td>
+                         <td  style="width: 20%;">
+                            @user.FirstName
+                        </td>
+                         <td  style="width: 20%;">
+                            @user.LastName
+                        </td>
+                        <td  style="width: 10%;">
+                            @user.IsActive.ToString()
+                        </td>
+                        <td  style="width: 30%;">
+                            <a title="Edit"  href="/Account/Edit/@user.UserId">Edit</a>
+                            <a title="Delete" href="/Account/Delete/@user.UserId">Delete</a>
+                            <a title="Change Password" href="/Account/ChangePassword/@user.UserId">Change Password</a>
+                        </td>
+                    </tr>
+                        }
+                    }
+                    
+                  @*  <tr data-pagename="Articles" class="localized published" style="cursor: move;">
+                       
+                        <td>
+                            <a href="/Sites/Page/Edit?siteName=vipulsinghal&amp;UUID=Articles&amp;return=%2FSites%2FPage%3FsiteName%3Dvipulsinghal">
+                                <img src="@Url.Content("~/Content/Images/invis.gif")" class="icon ">
+                                Articles</a>
+                        </td>
+                        <td>YES
+                        </td>
+                        <td>-
+                        </td>
+                        <td>vipulsinghal
+                        </td>
+                        <td>-
+                        </td>
+                        <td>
+                            <a title="Preview" class="o-icon preview" target="_blank" href="/dev~vipulsinghal">Preview</a>
+                        </td>
+                    </tr>
+                    <tr data-pagename="about" class="localized published" style="cursor: move;">
+                       
+                        <td>
+                            <a href="/Sites/Page/Edit?siteName=vipulsinghal&amp;UUID=about&amp;return=%2FSites%2FPage%3FsiteName%3Dvipulsinghal">
+                                <img src="@Url.Content("~/Content/Images/invis.gif")" class="icon ">
+                                about</a>
+                        </td>
+                        <td>YES
+                        </td>
+                        <td>About us
+                        </td>
+                        <td>vipulsinghal
+                        </td>
+                        <td>-
+                        </td>
+                        <td>
+                            <a title="Preview" class="o-icon preview" target="_blank" href="/dev~vipulsinghal/about">Preview</a>
+                        </td>
+                    </tr>*@
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*<script>
+
+        $(function () {
+            var fixHelper = function (e, ui) {
+                ui.children().each(function () {
+                    $(this).width($(this).width());
+                });
+                return ui;
+            };
+            $("div.common-table table tbody tr").css("cursor", "move");
+            $("div.common-table table tbody").sortable({
+                helper: fixHelper,
+                handle: 'td.draggable .drag',
+                update: function (event, ui) {
+                    var pageNameOrders = {};
+                    _.each($('[data-pagename]').toArray(), function (item, index) {
+                        var $item = $(item);
+                        var p = 'pageNames[' + index + ']';
+                        pageNameOrders[p] = $item.data('pagename');
+                    });
+
+                    $.ajax({
+                        url: '/Sites/Page/SortPages?siteName=vipulsinghal',
+                        data: pageNameOrders,
+                        type: 'post',
+                        success: function (response) {
+                            parse_JsonResultData(response);
+                        },
+                        error: function () {
+                        }
+                    });
+                }
+            }).disableSelection();
+        });
+
+    </script>*@
+
+</div>

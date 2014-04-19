@@ -1,0 +1,114 @@
+﻿@using MvcCheckBoxList.Model
+@model ExplorersEarlyLearning.Models.UserModel
+@{
+    ViewBag.Title = "User Add";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Add the User</h2>
+
+@using (Html.BeginForm("Add","Account")) {
+    @Html.ValidationSummary(true)
+    
+    if (Model.message != null) { 
+        <span style="color:red;font-size:14px;">@Model.message</span>
+    }
+       
+    <div class="common-form" style="display: block;">
+        <fieldset>
+            <table>
+                <tbody>
+
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.UserName)
+                            @Html.HiddenFor(model => model.user.UserId)
+                            @Html.HiddenFor(model=>model.SelectedRoles)
+                            @Html.HiddenFor(model=>model.AvailableRoles)
+                        </th>
+                        <td>
+
+                            @Html.EditorFor(model => model.user.UserName)
+                            @Html.ValidationMessageFor(model => model.user.UserName)
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.FirstName)
+                        </th>
+                        <td>
+
+                            @Html.EditorFor(model => model.user.FirstName)
+                            @Html.ValidationMessageFor(model => model.user.FirstName)
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.LastName)
+                            
+                        </th>
+                        <td>
+
+                            @Html.EditorFor(model => model.user.LastName)
+                        </td>
+                    </tr>
+                     <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.MobileNumber)
+                            
+                        </th>
+                        <td>
+
+                            @Html.EditorFor(model => model.user.MobileNumber)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.Password)
+                            
+                        </th>
+                        <td>
+                            @Html.PasswordFor(model => model.Password)
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Roles</th>
+                        <td>
+                          @Html.CheckBoxListFor(model => model.RoleNames,
+                                  model => model.AvailableRoles,
+                                  role => role.Name,
+                                  role => role.Name,
+                                  model => model.SelectedRoles,
+                                  Position.Vertical)
+
+                            @Html.ValidationMessageFor(model => model.RoleNames)
+                            </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.IsActive)
+                        </th>
+                        <td>
+
+                            @Html.CheckBoxFor(model => model.user.IsActive)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <input type="submit" value="Submit" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </fieldset>
+
+    </div>
+}

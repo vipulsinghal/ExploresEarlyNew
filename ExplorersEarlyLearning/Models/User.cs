@@ -15,5 +15,14 @@ namespace ExplorersEarlyLearning.Models
         public int UserId { get; set; }
         [Required]
         public string UserName { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string MobileNumber { get; set; }
+
+        public bool IsActive { get; set; }
+        public DateTime? LastLoginDate { get; set; }
+        public DateTime? CreateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
     }
 }

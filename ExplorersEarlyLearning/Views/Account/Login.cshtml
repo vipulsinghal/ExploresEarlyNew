@@ -1,74 +1,45 @@
-﻿@{
+﻿@model ExplorersEarlyLearning.Models.UserLoginModel
+@{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 
 @using (Html.BeginForm("Login","Account")) {
-@*<div class="common-form" style="display: block;">
-        <fieldset>
-            <table>
-                <tbody>
-
-                    <tr>
-                        <th>
-                           User Name:
-                        </th>
-                        <td>
-                            @Html.TextBox("username")
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <th>
-                           Password:
-                        </th>
-                        <td>
-                             @Html.Password("password")
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th></th>
-                        <td>
-                            <input type="submit" value="Login" />
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </fieldset>
-
-    </div>*@
-    
+    @Html.ValidationSummary(true)
     <div id="sidebar">
         <div class="block entry logon">
             <div>
                 <h6 class="title">Sign in</h6>
+                 @if (Model.message != null) { 
+        <span style="color:red;font-size:14px;">@Model.message</span>
+    }
                 <div class="common-form">
                     <div class="valid-summary">
                     </div>
                         <p class="field clearfix">
-                            <label for="UserName">Username</label>
-                            @Html.TextBox("username")
+                            @Html.LabelFor(model=>model.UserName)
+                            @Html.EditorFor(model => model.UserName)<br />
+                            @Html.ValidationMessageFor(model => model.UserName)
                         </p>
                         <p class="field clearfix">
-                            <label for="Password">Password</label>
-                            @Html.Password("password")
+                            @Html.LabelFor(model=>model.Password)
+                            @Html.PasswordFor(model => model.Password)<br />
+                            @Html.ValidationMessageFor(model => model.Password)
+                          
                         </p>
-                        <p class="field clearfix">
+                      @*  <p class="field clearfix">
                             <input type="checkbox" id="rememberMe" name="RememberMe" value="True">
                             <input type="hidden" name="RememberMe" value="False">
                             <label for="rememberMe" class="inline">Remember Me</label>
-                        </p>
+                        </p>*@
                         <p class="buttons clearfix">
                             <button type="submit">Sign in</button>
                             @*or <a href="/Account/Register">Sign up</a>*@
                         </p>
-                        <p>
+                       @* <p>
                             <a href="/Account/ForgotPassword" style="font-size: 11px;">Forget password?</a>
-                        </p>
+                        </p>*@
                     
                 </div>
             </div>

@@ -44,10 +44,30 @@ namespace ExplorersEarlyLearning.Filters
                     }
 
                     WebSecurity.InitializeDatabaseConnection("ExploresEarlyLearningContext", "User", "UserId", "UserName", autoCreateTables: true);
-                   
-                    /*WebSecurity.CreateUserAndAccount("Admin", "Admin");
-                    Roles.CreateRole("Administrator");
-                    Roles.AddUserToRole("Admin", "Administrator");
+                    
+
+                    if (!Roles.RoleExists("SuperAdmin"))
+                    {
+                        Roles.CreateRole("SuperAdmin");
+                    }
+                    if (!Roles.RoleExists("Admin"))
+                    {
+                        Roles.CreateRole("Admin");
+                    }
+                    if (!WebSecurity.UserExists("Admin"))
+                    {
+                        WebSecurity.CreateUserAndAccount("Admin", "Admin", propertyValues: new
+                        {
+                            FirstName = "Admin",
+                            LastName = "Admin",
+                            IsActive = true,
+                            CreateDate = DateTime.Now
+                        });
+                        Roles.AddUserToRole("Admin", "SuperAdmin");
+                    }
+                    /*
+                    Roles.CreateRole("SuperAdmin");
+                    Roles.AddUserToRole("Admin", "SuperAdmin");
                      * 
                     */
                     //Roles.GetAllRoles();

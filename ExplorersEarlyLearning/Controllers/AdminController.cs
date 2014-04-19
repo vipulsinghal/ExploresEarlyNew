@@ -22,7 +22,7 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Index()
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
             {
                 Response.Redirect("~/Account/Login");
             }
@@ -39,7 +39,7 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
             {
                 Response.Redirect("~/Account/Login");
             }
@@ -60,7 +60,7 @@ namespace ExplorersEarlyLearning.Controllers
             //List<Menu> menuList = (from menu in db.Menus
             //                       where menu.IsActive == true
             //                       select menu).ToList();
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
             {
                 Response.Redirect("~/Account/Login");
             }
@@ -72,7 +72,7 @@ namespace ExplorersEarlyLearning.Controllers
             //List<Menu> menuList = (from menu in db.Menus
             //                       where menu.IsActive == true
             //                       select menu).ToList();
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
             {
                 Response.Redirect("~/Account/Login");
             }
@@ -101,7 +101,7 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
             {
                 Response.Redirect("~/Account/Login");
             }
@@ -134,7 +134,7 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("Administrator"))
+            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
             {
                 Response.Redirect("~/Account/Login");
             }

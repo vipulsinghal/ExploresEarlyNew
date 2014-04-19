@@ -270,7 +270,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
     float: right;
     margin-bottom: -9999px;
     padding: 0 0 249px 30px;
-    width: 400px;
+    width: 450px;
 }
 
 
@@ -307,7 +307,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 }
 
 .common-form input[type="radio"], .common-form input[type="checkbox"] {
-    float: left;
+    /*float: left;*/
     margin-right: 5px;
 }
 
@@ -326,4 +326,127 @@ a {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease-in-out 0s;
+}
+
+#main {
+    margin: 40px 0 30px 200px;
+}
+
+#main .topbar {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    height: 30px;
+    left: 200px;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 40px;
+    z-index: 1000;
+}
+
+#main .topbar .title {
+    float: left;
+}
+
+
+#main .common-table.fixed .thead {
+    background: none repeat scroll 0 0 #FFFFFF;
+    left: 200px;
+    position: fixed;
+    right: 0;
+    top: 111px;
+    z-index: 999;
+}
+
+
+#main .common-table.fixed .tbody {
+    margin-top: 92px;
+}
+
+.common-table th.sort a {
+    color: #000000;
+    display: block;
+    height: 20px;
+    margin: -5px;
+    padding: 5px;
+}
+
+
+.common-table table {
+    width: 100%;
+}
+
+.common-table th:first-child {
+   padding-left: 20px;
+}
+
+.common-table td:first-child {
+    padding-left: 0px;
+}
+.common-table .checkbox, .common-form .common-table .checkbox {
+    width: 13px;
+}
+.common-table th {
+    font-size: 14px;
+    font-weight: 400;
+    height: 20px;
+    padding: 5px;
+    white-space: nowrap;
+}
+
+
+.common-table .checkbox input {
+    display: block;
+}
+
+.common-table th.sort a {
+    color: #000000;
+    display: block;
+    height: 20px;
+    margin: -5px;
+    padding: 5px;
+}
+
+
+.common-table th.sort a {
+    color: #000000;
+    display: block;
+    height: 20px;
+    margin: -5px;
+    padding: 5px;
+}
+
+
+.common-table .draggable.checkbox, .common-form .common-table .draggable.checkbox {
+    width: 13px;
+}
+.common-table td {
+    cursor: default;
+    line-height: 1.2;
+    padding: 5px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out 0s;
+    vertical-align: top;
+}
+
+
+.common-table .draggable div {
+    padding-top: 2px;
+    position: relative;
+}
+
+.common-table .draggable .icon.drag {
+    cursor: move;
+    left: -16px;
+    position: absolute;
+    top: 0;
+}
+img.icon.drag {
+    background-position: -22px -80px;
+    height: 18px;
+    width: 6px;
+}
+
+th {
+    text-align: left;
 }
