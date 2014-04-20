@@ -1,4 +1,5 @@
-﻿using ExplorersEarlyLearning.DAL;
+﻿using ExplorersEarlyLearning.Common;
+using ExplorersEarlyLearning.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -46,13 +47,13 @@ namespace ExplorersEarlyLearning.Filters
                     WebSecurity.InitializeDatabaseConnection("ExploresEarlyLearningContext", "User", "UserId", "UserName", autoCreateTables: true);
                     
 
-                    if (!Roles.RoleExists("SuperAdmin"))
+                    if (!Roles.RoleExists(UserRoles.SuperAdmin.ToString()))
                     {
-                        Roles.CreateRole("SuperAdmin");
+                        Roles.CreateRole(UserRoles.SuperAdmin.ToString());
                     }
-                    if (!Roles.RoleExists("Admin"))
+                    if (!Roles.RoleExists(UserRoles.Admin.ToString()))
                     {
-                        Roles.CreateRole("Admin");
+                        Roles.CreateRole(UserRoles.Admin.ToString());
                     }
                     if (!WebSecurity.UserExists("Admin"))
                     {
@@ -63,7 +64,7 @@ namespace ExplorersEarlyLearning.Filters
                             IsActive = true,
                             CreateDate = DateTime.Now
                         });
-                        Roles.AddUserToRole("Admin", "SuperAdmin");
+                        Roles.AddUserToRole("Admin", UserRoles.SuperAdmin.ToString());
                     }
                     /*
                     Roles.CreateRole("SuperAdmin");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExplorersEarlyLearning.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,13 +25,4 @@ namespace ExplorersEarlyLearning.Models
         public DateTime? UpdateDate { get; set; }
     }
 
-    public enum PageType {
-        Home, 
-        Philosophy, 
-        Program, 
-        Center, 
-        Portfolio, 
-        Employment, 
-        ContactUs
-    }
 }

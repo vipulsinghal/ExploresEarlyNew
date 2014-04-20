@@ -63,9 +63,14 @@
                             @user.IsActive.ToString()
                         </td>
                         <td  style="width: 30%;">
+                            <a title="Edit"  href="/Account/Detail/@user.UserId">View</a>
+                            @*@if(WebSecurity.CurrentUserName==@user.UserName || Roles.IsUserInRole(WebSecurity.CurrentUserName,ExplorersEarlyLearning.Common.UserRoles.SuperAdmin.ToString()))
+                            {
+                                *@
                             <a title="Edit"  href="/Account/Edit/@user.UserId">Edit</a>
-                            <a title="Delete" href="/Account/Delete/@user.UserId">Delete</a>
-                            <a title="Change Password" href="/Account/ChangePassword/@user.UserId">Change Password</a>
+                                <a title="Delete" href="/Account/Delete/@user.UserId">Delete</a>
+                                <a title="Change Password" href="/Account/ChangePassword/@user.UserId">Change Password</a>
+                            @*}*@
                         </td>
                     </tr>
                         }

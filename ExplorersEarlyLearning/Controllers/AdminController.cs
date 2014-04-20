@@ -9,6 +9,7 @@ using ExplorersEarlyLearning.Models;
 using ExplorersEarlyLearning.DAL;
 using WebMatrix.WebData;
 using System.Web.Security;
+using ExplorersEarlyLearning.Common;
 
 namespace ExplorersEarlyLearning.Controllers
 {
@@ -22,9 +23,10 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Index()
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                RedirectToAction("Login", "Account");
             }
 
             List<Menu> menuList = (from menu in db.Menus
@@ -39,9 +41,10 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                RedirectToAction("Login", "Account");
             }
 
             Menu menu = db.Menus.Find(id);
@@ -57,24 +60,20 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Create()
         {
-            //List<Menu> menuList = (from menu in db.Menus
-            //                       where menu.IsActive == true
-            //                       select menu).ToList();
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                RedirectToAction("Login", "Account");
             }
             return View();
         }
 
         public ActionResult CreateSubPage(int id)
         {
-            //List<Menu> menuList = (from menu in db.Menus
-            //                       where menu.IsActive == true
-            //                       select menu).ToList();
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                RedirectToAction("Login", "Account");
             }
             Menu menu = new Menu();
             menu.ParentMenuId = id;
@@ -101,9 +100,10 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                RedirectToAction("Login","Account");
             }
             Menu menu = db.Menus.Find(id);
             if (menu == null)
@@ -134,7 +134,8 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
                 Response.Redirect("~/Account/Login");
             }

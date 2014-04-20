@@ -19,7 +19,6 @@ namespace ExplorersEarlyLearning.Models
 
         public IList<RoleModel> AvailableRoles { get; set; }
         public IList<RoleModel> SelectedRoles { get; set; }
-
         [Required]
         public string[] RoleNames { get; set; }
     }
@@ -31,6 +30,8 @@ namespace ExplorersEarlyLearning.Models
         public string message { get; set; }
         [Required]
         public string Password { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 
     public class UserChangePasswordModel

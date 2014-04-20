@@ -1,0 +1,91 @@
+﻿@using MvcCheckBoxList.Model
+@model ExplorersEarlyLearning.Models.UserModel
+@{
+    ViewBag.Title = "User Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit the User</h2>
+
+
+       
+    <div class="common-form" style="display: block;">
+        <fieldset>
+            <table>
+                <tbody>
+
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.UserName)
+                           
+                        </th>
+                        <td>
+
+                            @Html.DisplayFor(model => model.user.UserName)
+                     
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.FirstName)
+                        </th>
+                        <td>
+
+                            @Html.DisplayFor(model => model.user.FirstName)
+                        
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.LastName)
+                            
+                        </th>
+                        <td>
+
+                            @Html.DisplayFor(model => model.user.LastName)
+                        </td>
+                    </tr>
+                     <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.MobileNumber)
+                            
+                        </th>
+                        <td>
+
+                            @Html.DisplayFor(model => model.user.MobileNumber)
+                        </td>
+                    </tr>
+                   
+                   
+                    <tr>
+                        <th>Roles</th>
+                        <td>
+                         @foreach (ExplorersEarlyLearning.Models.RoleModel rolename in Model.SelectedRoles)
+                         { 
+                             <span>@rolename.Name</span><br />
+                         }
+                         </td>
+                    </tr>
+                     <tr>
+                        <th>
+                            @Html.LabelFor(model => model.user.IsActive)
+                        </th>
+                        <td>
+
+                            @Html.DisplayFor(model => model.user.IsActive)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <a href="/Account/List">Back to list</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </fieldset>
+
+    </div>

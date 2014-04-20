@@ -28,11 +28,12 @@
                             @Html.ValidationMessageFor(model => model.Password)
                           
                         </p>
-                      @*  <p class="field clearfix">
-                            <input type="checkbox" id="rememberMe" name="RememberMe" value="True">
-                            <input type="hidden" name="RememberMe" value="False">
+                       <p class="field clearfix">
+                            @*<input type="checkbox" id="rememberMe" name="RememberMe" value="True">
+                            <input type="hidden" name="RememberMe" value="False">*@
+                           @Html.CheckBoxFor(model=>model.RememberMe)
                             <label for="rememberMe" class="inline">Remember Me</label>
-                        </p>*@
+                        </p>
                         <p class="buttons clearfix">
                             <button type="submit">Sign in</button>
                             @*or <a href="/Account/Register">Sign up</a>*@

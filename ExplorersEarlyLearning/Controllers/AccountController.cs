@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
+using ExplorersEarlyLearning.Common;
 
 namespace ExplorersEarlyLearning.Controllers
 {
@@ -27,7 +28,7 @@ namespace ExplorersEarlyLearning.Controllers
         public void SignOut()
         {
             WebSecurity.Logout();
-            Response.Redirect("~/Account/Login");
+            RedirectToAction("Login");
         }
 
         [HttpPost]
@@ -35,13 +36,13 @@ namespace ExplorersEarlyLearning.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool success = WebSecurity.Login(userLogin.UserName, userLogin.Password, false);
+                bool success = WebSecurity.Login(userLogin.UserName, userLogin.Password, userLogin.RememberMe);
                 if (success)
                 {
                     string returnUrl = Request.QueryString["ReturnUrl"];
                     if (returnUrl == null)
                     {
-                        Response.Redirect("~/Admin/Index");
+                        RedirectToAction("Index","Admin");
                     }
                     else
                     {
@@ -62,9 +63,10 @@ namespace ExplorersEarlyLearning.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if(!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                RedirectToAction("Login");
             }
            UserModel usermodel = new UserModel();
 
@@ -76,13 +78,26 @@ namespace ExplorersEarlyLearning.Controllers
         private static void IntializeRolesInModel(UserModel usermodel)
         {
             IList<RoleModel> lstRoleModel = new List<RoleModel>();
+            IList<RoleModel> lstSelRoleModel = new List<RoleModel>();
             foreach (string rolename in Roles.GetAllRoles())
             {
                 lstRoleModel.Add(new RoleModel(rolename, false));
             }
             usermodel.AvailableRoles = lstRoleModel;
-            usermodel.SelectedRoles = new List<RoleModel>();
-            usermodel.RoleNames = new string[0];
+
+            if (usermodel.RoleNames != null && usermodel.RoleNames.Length > 0)
+            {
+                foreach (string selRoleName in usermodel.RoleNames)
+                {
+                    lstSelRoleModel.Add(new RoleModel(selRoleName, true));
+                }
+                usermodel.SelectedRoles = lstSelRoleModel;
+            }
+            else
+            {
+                usermodel.SelectedRoles = new List<RoleModel>();
+                usermodel.RoleNames = new string[0];
+            }
         }
 
         [HttpPost]
@@ -118,28 +133,34 @@ namespace ExplorersEarlyLearning.Controllers
                     else
                     {
                         usermodel.message = "User is already exists. Please try to create with different user.";
+                        IntializeRolesInModel(usermodel);
                         return View(usermodel);
                     }
                 }
                 catch (Exception ex)
                 {
+
                     usermodel.message = "User have not been create Successfully.";
+                    IntializeRolesInModel(usermodel);
                     return View(usermodel);
                 }
                 
             }
             else
             {
+                IntializeRolesInModel(usermodel);
                 return View(usermodel);
             }
         }
 
         public ActionResult Edit(int id = 0)
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                RedirectToAction("Login");
             }
+
             UserModel userModel = new UserModel();
             userModel.Password = "Exist";
             User user = db.Users.Find(id);
@@ -148,6 +169,11 @@ namespace ExplorersEarlyLearning.Controllers
                 return HttpNotFound();
             }
             userModel.user = user;
+
+            if (CommonUtility.IsUserEditPermission(user.UserName))
+            {
+                RedirectToAction("List");
+            }
 
             IList<RoleModel> lstRoleModel = new List<RoleModel>();
             IList<RoleModel> lstSelRoleModel = new List<RoleModel>();
@@ -188,7 +214,7 @@ namespace ExplorersEarlyLearning.Controllers
                         string[] existingRoles = Roles.GetRolesForUser(usermodel.user.UserName);
 
                         var deletedRoles = (from existRole in existingRoles
-                                            where !usermodel.RoleNames.Contains(existRole)
+                                            where !(usermodel.RoleNames!=null && usermodel.RoleNames.Contains(existRole))
                                             select existRole).ToList();
 
                         foreach (string deleteRole in deletedRoles)
@@ -213,30 +239,67 @@ namespace ExplorersEarlyLearning.Controllers
                     else
                     {
                         usermodel.message = "User is already exists. Please try to update with different user.";
+                        IntializeRolesInModel(usermodel);
                         return View(usermodel);
                     }
                 }
                 catch (Exception ex)
                 {
                     usermodel.message = "User have not been modified Successfully.";
+                    IntializeRolesInModel(usermodel);
                     return View(usermodel);
                 }
             }
             else
             {
+                IntializeRolesInModel(usermodel);
                 return View(usermodel);
             }
             
         }
 
-        public ActionResult Delete(int id = 0)
+        public ActionResult Detail(int id = 0)
         {
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
+            {
+                RedirectToAction("Login");
+            }
+            UserModel userModel = new UserModel();
+            
             User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
+            userModel.user = user;
+                        
+            IList<RoleModel> lstSelRoleModel = new List<RoleModel>();
+            foreach (string selRoleName in Roles.GetRolesForUser(user.UserName))
+            {
+                lstSelRoleModel.Add(new RoleModel(selRoleName, true));
+            }
+            userModel.SelectedRoles = lstSelRoleModel;
+            
+            return View(userModel);
+        }
 
+        public ActionResult Delete(int id = 0)
+        {
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
+            {
+                RedirectToAction("Login");
+            }
+            User user = db.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            if (CommonUtility.IsUserEditPermission(user.UserName))
+            {
+                RedirectToAction("List");
+            }
             if (Roles.GetRolesForUser(user.UserName).Count() > 0)
             {
                 Roles.RemoveUserFromRoles(user.UserName, Roles.GetRolesForUser(user.UserName));
@@ -250,26 +313,24 @@ namespace ExplorersEarlyLearning.Controllers
 
         public ActionResult List()
         {
-            if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
             {
-                Response.Redirect("~/Account/Login");
+                return RedirectToAction("Login");
             }
             List<User> userList = (from user in db.Users
                                    select user).ToList();
             return View(userList);
         }
-
-        //public ActionResult ChangePassword()
-        //{
-        //    string userName = WebSecurity.CurrentUserName;
-        //    UserChangePasswordModel userChangeModel = new UserChangePasswordModel();
-        //    userChangeModel.UserName = userName;
-
-        //    return View(userChangeModel);
-        //}
-
+     
         public ActionResult ChangePassword(int id = 0)
         {
+            //if (!WebSecurity.IsAuthenticated && !Roles.IsUserInRole("SuperAdmin"))
+            if (!CommonUtility.CheckUserLogin())
+            {
+                RedirectToAction("Login");
+            }
+
             UserChangePasswordModel userChangeModel = new UserChangePasswordModel();
             if (id != 0)
             {
@@ -284,6 +345,10 @@ namespace ExplorersEarlyLearning.Controllers
             {
                 userChangeModel.UserName = WebSecurity.CurrentUserName;
 
+            }
+            if (CommonUtility.IsUserEditPermission(userChangeModel.UserName))
+            {
+                RedirectToAction("List");
             }
             return View(userChangeModel);
         }
