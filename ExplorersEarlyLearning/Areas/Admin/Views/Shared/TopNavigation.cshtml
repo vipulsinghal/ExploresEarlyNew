@@ -1,0 +1,46 @@
+﻿@using Explorers.Web.Areas.Admin.Infrastructure;
+@using Explorers.Web.Infrastructure;
+@{
+    var topMenu = TopNavigation.MenuItems;
+}
+
+@helper RenderNode(TopNavigationNode thisNode, bool hasChildren)
+{
+    <li class="j_DropDown">
+    <a @(hasChildren ? string.Empty : "href=" +  Url.Action(thisNode.Action, thisNode.Controller, new { Area = thisNode.Area }))>
+        <img class="icon ex-nav-@(thisNode.Type.ToString())" src="@Url.ContentAdmin("~/Content/Images/invis.gif")">
+        @if (hasChildren)
+{
+    <img class="icon arrow small white-down" src="@Url.ContentAdmin("~/Content/Images/invis.gif")" />
+        }
+        @thisNode.Title
+    </a>
+         @if (hasChildren)
+          {
+              <ul class="j_DropDownContent hide">
+                  @foreach(var child in thisNode.Children)
+                  {
+                        @RenderChild(child);
+                  }
+              </ul>
+          }
+        </li>
+}
+
+@helper RenderChild(TopNavigationNode thisNode)
+{
+    <li>
+<a href="@Url.Action(thisNode.Action, thisNode.Controller, new { Area = thisNode.Area })">@thisNode.Title</a>
+</li>
+}
+
+
+    <ul class="panel">
+
+@foreach (var node in topMenu)
+{
+    @RenderNode(node, node.Children != null && node.Children.Any());
+}
+    
+</ul>
+

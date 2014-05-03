@@ -1,0 +1,73 @@
+﻿@model Explorers.Web.Areas.Admin.Models.PageModel.AddPageViewModel
+
+
+<div class="ex-form-box">
+    <div class="ex-form-caption">
+        <h2>Add New Page</h2>
+    </div>
+    <div class="ex-form-content">
+        
+        <form id="formAddPage" class="ex-form">
+            @Html.HiddenFor(x => x.ParentId)
+
+            <div class="ex-form-group">
+                @Html.LabelFor(x=>x.Title, new{@class = "ex-form-prompt ex-col-20"})
+                <div class="ex-form-input ex-col-70">
+                    @Html.TextBoxFor(x=>x.Title, new{@class="ex-form-control"})
+                    @Html.ValidationMessageFor(x=>x.Title)
+                </div>
+            </div>
+            
+            <div class="ex-form-group">
+                @Html.LabelFor(x=>x.Contents, new{@class = "ex-form-prompt ex-col-20"})
+                <div class="ex-form-input ex-col-70">
+                    @Html.TextAreaFor(x=>x.Contents, new{@class="ex-form-control"})
+                </div>
+            </div>
+            
+            <div class="sep"></div>
+            
+            <div class="ex-form-group ex-center">
+                <button class="ex-btn ex-btn-save">Save</button>
+                <button class="ex-btn ex-btn-cancel">Cancel</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+    
+<script type="text/javascript">
+    $(function () {
+       CKEDITOR.replace('Contents');
+
+        if(!ExPages.processAddSubmit)
+            ExPages.processAddSubmit = function (e) {
+                e.preventDefault();
+                var thisForm = $(e.target).closest('form');
+                var overlay = ExPages.Overlay(ExPages.Root);
+                $.post('@Url.Action("Add", "Page", new{Area = ExplorerWebAreas.Admin })',
+                    {
+                        ParentId: thisForm.find("#ParentId").val(),
+                        Title: thisForm.find("#Title").val(),
+                        Contents: CKEDITOR.instances.Contents.getData()
+                    },
+                     function (data) {
+                         overlay.remove();
+                         if (data['Result'] != "SUCCESS") {
+                             if (data['Content'])
+                                 ExPages.Content.html(data['Content']);
+                             EX.Notify(data["Message"], data["Description"]);
+                             return;
+                         }
+                         ExPages.Sidebar.find('.site-tree').replaceWith(data['Content']['TreeView'])
+                         ExPages.Content.html(data['Content']['Page'])
+                         EX.Notify(data["Message"], data["Description"]);
+                     });
+              
+            };
+
+        $("#formAddPage").submit(ExPages.processAddSubmit);
+    });
+</script>

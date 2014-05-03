@@ -1,0 +1,144 @@
+﻿@model Explorers.Web.Areas.Admin.Models.PageModel.PagesIndex
+@using Explorers.Web.Areas.Admin.Models.PageModel
+@{
+    ViewBag.Title = "Manage Pages";
+    var values = Enum.GetNames(typeof(PagesTreeViewActionType)).ToDictionary(e=>e, e=>e);
+    var jsonTreeViewActionTypes = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(values);
+}
+
+<div class="sidebar">
+    <div class="title">Current Pages
+         <a id="btnAddNewPage">
+        <img class="icon ex-icon-Add" src="@Url.ContentAdmin("~/Content/Images/invis.gif")" />
+        Add New Page
+    </a>
+    </div>
+   
+    @{Html.RenderPartial("PagesTreeView", Model.TreeView );}
+</div>
+<div class="main">
+    adsf
+</div>
+
+<script src="@Url.ContentAdmin("~/Content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript">
+    var ExPages = {};
+    ExPages.Root = $("#ex-container");
+    ExPages.Sidebar = $("#ex-container .sidebar");
+    ExPages.Content = $("#ex-container .main");
+    //ExPages.ActionTypes = Html.Raw(jsonTreeViewActionTypes);
+    ExPages.ActionTypes = {"AddPage":"AddPage","EditPage":"EditPage","UpdatePage":"UpdatePage","DeletePage":"DeletePage","PreviewPage":"PreviewPage","MoveDown":"MoveDown","MoveUp":"MoveUp","PublishPage":"PublishPage","UnpublishPage":"UnpublishPage","AddChild":"AddChild"};
+    //ExPages.ActionTypes = {"AddPage":0,"EditPage":1,"UpdatePage":2,"DeletePage":3,"PreviewPage":4,"MoveDown":5,"MoveUp":6,"PublishPage":7,"UnpublishPage":8,"AddChild":9};
+
+
+    ExPages.InitView = function () {
+        var createOverlay = function (target, id) {
+                if (id == undefined) id = "overlay";
+                else id = "ov_" + id;
+                var span = $('<span></span>').css('margin-top', $(target).outerHeight() / 2);
+                var center = $('<center></center>').append(span);
+                var overlay = $('<div id="' + id + '" class="ex-overlay"></div>').append(center);
+                var tWidth = $(target).outerWidth();
+                var tHeight = $(target).outerHeight();
+                $(overlay).css({ position: "absolute", left: "0", top: "0", width: tWidth, height: tHeight });
+                overlay.appendTo($(target));
+                target.overlay = overlay;
+                return overlay;
+        };
+
+        var bindActions = function () {
+
+            var processOp = function(page, op) {
+                switch (op) {
+                    case ExPages.ActionTypes.EditPage:
+                        processEdit(page);
+                        break;
+                    case ExPages.ActionTypes.AddPage:
+                        processAdd();
+                        break;
+                    case ExPages.ActionTypes.DeletePage:
+                        processDelete(page);
+                        break;
+                    case ExPages.ActionTypes.AddChild:
+                        processAdd(page);
+                        break;
+                    case ExPages.ActionTypes.PublishPage:
+                        processPublish(page);
+                        break;
+                    case ExPages.ActionTypes.UnpublishPage:
+                        processUnpublish(page);
+                        break;
+                    default:
+                }
+            };
+
+            var processEdit = function(page) {
+                var overlay = createOverlay(ExPages.Content);
+                $.get('@Url.Action("Edit", "Page", new{Area = ExplorerWebAreas.Admin})',
+                    {pageId: page},
+                    function(data) {
+                        overlay.remove();
+                        ExPages.Content.html(data['Content']);
+                    });
+            };
+
+            var processAdd = function(page) {
+                var overlay = createOverlay(ExPages.Content);
+                $.get('@Url.Action("Add", "Page", new{Area = ExplorerWebAreas.Admin})',
+                     {ParentId: page},
+                     function (data) {
+                         overlay.remove();
+                         ExPages.Content.html(data['Content']);
+                     });
+            };
+
+            var processDelete = function (page) {
+                var overlay = createOverlay(ExPages.Content);
+                $.get('@Url.Action("Delete", "Page", new{Area = ExplorerWebAreas.Admin})',
+                    { pageId: page },
+                     function (data) {
+                         overlay.remove();
+                         ExPages.Content.html(data['Content']);
+                     });
+            };
+
+
+            var processPublish = function (page) {
+                var overlay = createOverlay(ExPages.Content);
+                $.get('@Url.Action("Publish", "Page", new{Area = ExplorerWebAreas.Admin})',
+                    { pageId: page },
+                     function (data) {
+                         overlay.remove();
+                         ExPages.Content.html(data['Content']);
+                     });
+            };
+
+            var processUnpublish = function (page) {
+                var overlay = createOverlay(ExPages.Content);
+                $.get('@Url.Action("Unpublish", "Page", new{Area = ExplorerWebAreas.Admin})',
+                    { pageId: page },
+                     function (data) {
+                         overlay.remove();
+                         ExPages.Content.html(data['Content']);
+                     });
+            };
+
+
+            $(document).on('click', '#ex-container .map-item li a', function(e) {
+                var relOp = $(e.target).attr('relO');
+                var relPage = $(e.target).closest('ul').attr('relP');
+                processOp(relPage, relOp);
+            }).on('click', '#ex-container #btnAddNewPage', function (e) {
+                processOp(null, ExPages.ActionTypes.AddPage);
+            });
+        };
+
+        ExPages.Overlay = createOverlay;
+        bindActions();
+    };
+
+    $(function() {
+        ExPages.InitView();
+    });
+</script>
+

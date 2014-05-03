@@ -1,0 +1,27 @@
+﻿@using Explorers.Web.Infrastructure
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.ContentAdmin("~/Content/css/styleAdmin.css")" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")"></script>
+</head>
+<body>
+  
+    <header id="header">
+        <a class="logo" href="/Admin" title="Home">
+            Explores Early Learning
+        </a>
+    </header>
+    <div style="clear:both;">&nbsp;</div>
+        <div id="middle-container" class="clearfix">
+         	@RenderBody()
+        </div>
+        
+<!--- footer start here --->
+
+</body>
+</html>

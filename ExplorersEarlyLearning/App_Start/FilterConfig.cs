@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace ExplorersEarlyLearning
+namespace Explorers.Web
 {
     public class FilterConfig
     {

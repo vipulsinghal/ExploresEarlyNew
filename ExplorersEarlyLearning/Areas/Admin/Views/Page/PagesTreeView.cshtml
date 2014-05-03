@@ -1,0 +1,114 @@
+﻿@model Explorers.Web.Areas.Admin.Models.PageModel.PagesTreeView
+@using Explorers.Web.Areas.Admin.Models.PageModel
+
+@using WebPage = Explorers.Infrastructure.Entities.WebPage;
+
+
+@helper RenderRootNode(WebPage page, bool hasChildren, bool isFirst, bool isLast)
+{
+    <li class="tree-node @(hasChildren ? "active ex-exp" : "")">
+        @if(hasChildren){
+        <img class="icon tree-icon" src="@Url.ContentAdmin("~/Content/Images/invis.gif")">
+        }
+        <div class="map-item @(page.IsPublished ? "published" : "unpublished")">
+            <a title="@page.Title" href="#">@page.Title</a>
+            <span class="arrow">
+                <img class="icon arrow-right" src="@Url.ContentAdmin("~/Content/Images/invis.gif")">
+            </span>
+            @RenderOps(page, true, isFirst, isLast)
+        </div>
+        @if (hasChildren)
+        {
+            <ul>
+                @{ int index1 = 0; }
+                @foreach (var child in page.ChildPages)
+                {
+                    @RenderChildNode(child, index1 == 0, index1 == page.ChildPages.Count - 1)
+                    index1++;
+                }
+            </ul>
+        }
+    </li>
+    }
+
+@helper RenderChildNode(WebPage page, bool isFirst, bool isLast)
+{
+    <li class="tree-node">
+        <div class="map-item  @(page.IsPublished ? "published" : "unpublished")">
+            <a title="@page.Title" href="#">@page.Title</a>
+            <span class="arrow">
+                <img class="icon arrow-right" src="@Url.ContentAdmin("~/Content/Images/invis.gif")">
+            </span>
+            @RenderOps(page, false, isFirst, isLast)
+        </div>
+    </li>
+}
+
+@helper RenderOps(WebPage page, bool isRootNode, bool isFirst, bool isLast)
+{
+      <ul relP="@page.Id">
+          <li>
+              <a href="javascript:void(0)" relO="@PagesTreeViewActionType.PreviewPage" class="">Preview</a>
+          </li>
+          <li>
+              <a href="javascript:void(0)" relO="@PagesTreeViewActionType.EditPage" class="">Edit</a>
+          </li>
+          <li>
+              <a href="javascript:void(0)" relO="@PagesTreeViewActionType.DeletePage" class="">Delete</a>
+          </li>
+          @if (isRootNode)
+          {
+              <li class="sep"></li>
+              <li>
+                  <a href="javascript:void(0)" relO="@PagesTreeViewActionType.AddChild" class="">Add Child</a>
+              </li>
+          }
+@* If It's not both first and last, ie, no siblings *@
+          @if (!(isFirst && isLast))
+          {
+              <li class="sep"></li>
+          }
+          @if (!isFirst)
+          {
+              <li>
+                  <a href="javascript:void(0)" relO="@PagesTreeViewActionType.MoveUp" class="">Move Up</a>
+              </li>
+          }
+           @if (!isLast)
+           {
+              <li>
+                  <a href="javascript:void(0)" relO="@PagesTreeViewActionType.MoveDown" class="">Move Down</a>
+              </li>
+           }
+          <li class="sep"></li>
+          @if (page.IsPublished)
+          {
+              <li>
+                  <a href="javascript:void(0)" relO="@PagesTreeViewActionType.UnpublishPage" class="">Unpublish</a>
+              </li>
+          }
+          else
+          {
+               <li>
+                  <a href="javascript:void(0)" relO="@PagesTreeViewActionType.PublishPage" class="">Publish</a>
+              </li>
+          }
+    </ul>
+}
+
+
+    <div class="site-tree">
+        @{ int index = 0; }
+        @foreach (var node in Model.CurrentPages)
+        {
+            @RenderRootNode(node, node.ChildPages != null && node.ChildPages.Count > 0, index == 0, index == Model.CurrentPages.Count - 1);
+            index++;
+}
+    </div>    
+
+<script>
+    $(function () {
+        $('.tree-node').treeNode();
+        $(document).mapItem();
+    });
+</script>

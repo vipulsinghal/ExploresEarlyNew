@@ -1,0 +1,49 @@
+﻿@using Explorers.Web.Infrastructure
+@{
+    ViewBag.Title = "Login";
+    Layout = @Url.ContentAdmin("~/Views/Shared/_LayoutLogin.cshtml");
+}
+
+
+<div id="main">
+    <div class="article">
+        <h2>Welcome to Explorers Admin</h2>
+        <p></p>
+    </div>
+</div>    
+<div id="sidebar">
+@using (Html.BeginForm("Login","Account")) {
+    
+    <div class="block entry logon">
+        <div>
+            <h6 class="title">Sign in</h6>
+            <div class="common-form">
+                <div class="valid-summary">
+                </div>
+                <p class="field clearfix">
+                    <label for="UserName">Username</label>
+                    @Html.TextBox("username")
+                </p>
+                <p class="field clearfix">
+                    <label for="Password">Password</label>
+                    @Html.Password("password")
+                </p>
+                <p class="field clearfix">
+                    <input type="checkbox" id="rememberMe" name="RememberMe" value="True">
+                    <input type="hidden" name="RememberMe" value="False">
+                    <label for="rememberMe" class="inline">Remember Me</label>
+                </p>
+                <p class="buttons clearfix">
+                    <button type="submit">Sign in</button>
+                    @*or <a href="/Account/Register">Sign up</a>*@
+                </p>
+                <p>
+                    <a href="/Account/ForgotPassword" style="font-size: 11px;">Forget password?</a>
+                </p>
+                    
+            </div>
+        </div>
+    </div>
+    
+}
+</div>    

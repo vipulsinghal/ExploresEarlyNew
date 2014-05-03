@@ -1,0 +1,57 @@
+﻿@model Explorers.Web.Areas.Admin.Models.PageModel.PublishPageViewModel
+
+
+<div class="ex-form-box">
+    <div class="ex-form-caption">
+        <h2>Publish Page - @Model.Title</h2>
+    </div>
+    <div class="ex-form-content">
+        
+        <form id="formPublishPage" class="ex-form">
+            @Html.HiddenFor(x => x.PageId)
+
+            <p><b>Please Note: </b>Publishing this page will make this page immediately available on the Explorers Web site. Please ensure that you have made all the required changes, and that the page has appropriate content to be published on website.</p>
+            <p>Are you sure you want to publish this page?</p>
+            
+            <div class="sep"></div>
+            
+            <div class="ex-form-group ex-center">
+                <button class="ex-btn ex-btn-save">Publish It</button>
+                <button class="ex-btn ex-btn-cancel">Cancel</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+    
+<script type="text/javascript">
+    $(function () {
+
+        if (!ExPages.processPublishSubmit)
+            ExPages.processPublishSubmit = function (e) {
+                e.preventDefault();
+                var thisForm = $(e.target).closest('form');
+                var overlay = ExPages.Overlay(ExPages.Root);
+                $.post('@Url.Action("Publish", "Page", new{Area = ExplorerWebAreas.Admin })',
+                    {
+                        PageId: thisForm.find("#PageId").val()
+                    },
+                     function (data) {
+                         overlay.remove();
+                         if (data['Result'] != "SUCCESS") {
+                             EX.Notify(data["Message"], data["Description"]);
+                             return;
+                         }
+                         if (data['Content'])
+                             ExPages.Sidebar.find('.site-tree').replaceWith(data['Content']['TreeView']);
+                         ExPages.Content.html('')
+                         EX.Notify(data["Message"], data["Description"]);
+                     });
+
+            };
+
+        $("#formPublishPage").submit(ExPages.processPublishSubmit);
+    });
+</script>

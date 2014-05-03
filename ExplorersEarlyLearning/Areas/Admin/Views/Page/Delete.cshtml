@@ -1,0 +1,56 @@
+﻿@model Explorers.Web.Areas.Admin.Models.PageModel.DeletePageViewModel
+
+
+<div class="ex-form-box">
+    <div class="ex-form-caption">
+        <h2>Delete Page - @Model.Title</h2>
+    </div>
+    <div class="ex-form-content">
+        
+        <form id="formDeletePage" class="ex-form">
+            @Html.HiddenFor(x => x.PageId)
+
+            <p>Are you sure you want to delete this page?</p>
+            
+            <div class="sep"></div>
+            
+            <div class="ex-form-group ex-center">
+                <button class="ex-btn ex-btn-save">Delete</button>
+                <button class="ex-btn ex-btn-cancel">Cancel</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+    
+<script type="text/javascript">
+    $(function () {
+
+        if (!ExPages.processDeleteSubmit)
+            ExPages.processDeleteSubmit = function (e) {
+                e.preventDefault();
+                var thisForm = $(e.target).closest('form');
+                var overlay = ExPages.Overlay(ExPages.Root);
+                $.post('@Url.Action("Delete", "Page", new{Area = ExplorerWebAreas.Admin })',
+                    {
+                        PageId: thisForm.find("#PageId").val()
+                    },
+                     function (data) {
+                         overlay.remove();
+                         if (data['Result'] != "SUCCESS") {
+                             EX.Notify(data["Message"], data["Description"]);
+                             return;
+                         }
+                         if (data['Content'])
+                             ExPages.Sidebar.find('.site-tree').replaceWith(data['Content']['TreeView']);
+                         ExPages.Content.html('')
+                         EX.Notify(data["Message"], data["Description"]);
+                     });
+
+            };
+
+        $("#formDeletePage").submit(ExPages.processDeleteSubmit);
+    });
+</script>
