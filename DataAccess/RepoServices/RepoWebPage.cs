@@ -15,6 +15,7 @@ namespace DataAccess.RepoServices
             var lstPages = DbContext.WebPages.Where(x=>x.Parent == null);
             return lstPages.Any() ? lstPages.Include(x=>x.ChildPages).OrderBy(x => x.DisplaySequence).ToList() : new List<WebPage>();
         }
+
         public IList<WebPage> GetAllPagesTest(out string errMsg)
         {
             errMsg = string.Empty;

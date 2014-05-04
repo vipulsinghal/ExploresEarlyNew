@@ -1,17 +1,15 @@
-﻿@model Explorers.Web.Areas.Admin.Models.UserModel.RegisterUserViewModel
-
+﻿@model Explorers.Web.Areas.Admin.Models.UserModel.EditUserViewModel
 
 
 <div class="ex-form-box">
     <div class="ex-form-caption">
-       
-        <h2>Register User</h2>
-        
+        <h2>Edit User</h2>
     </div>
     <div class="ex-form-content">
         
-        <form id="formAddPage" class="ex-form">
-           
+        <form id="formEditPage" class="ex-form">
+            @Html.HiddenFor(x => x.UserId)
+
             <div class="ex-form-group">
                 @Html.LabelFor(x=>x.UserName, new{@class = "ex-form-prompt ex-col-20"})
                 <div class="ex-form-input ex-col-50">
@@ -36,19 +34,14 @@
             </div>
 
             <div class="ex-form-group">
-                @Html.LabelFor(x=>x.Password, new{@class = "ex-form-prompt ex-col-20"})
-                <div class="ex-form-input ex-col-50">
-                    @Html.PasswordFor(x=>x.Password, new{@class="ex-form-control"})
-                </div>
-            </div>
-
-            <div class="ex-form-group">
                 @Html.LabelFor(x=>x.IsActive, new{@class = "ex-form-prompt ex-col-20"})
                 <div class="ex-form-input ex-col-20">
                     @Html.CheckBoxFor(x=>x.IsActive, new{@class="ex-form-control"})
                 </div>
             </div>
-
+            
+            
+            
             <div class="sep"></div>
             
             <div class="ex-form-group ex-center">
@@ -61,99 +54,40 @@
     </div>
 </div>
 
-@*
-
-@using (Html.BeginForm("Register","Account")) {
-    @Html.ValidationSummary(true)
-    
-    
-    if (Model.message != null) { 
-        <span style="color:red;font-size:14px;">@Model.message</span>
-    }
-       
-    <div class="common-form" style="display: block;">
-        <fieldset>
-            <table>
-                <tbody>
-
-                    <tr>
-                        <th>
-                            @Html.LabelFor(model => model.user.UserName)
-                            @Html.HiddenFor(model => model.user.UserId)
-                        </th>
-                        <td>
-
-                            @Html.EditorFor(model => model.user.UserName)
-                            @Html.ValidationMessageFor(model => model.user.UserName)
-
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <th>
-                            @Html.LabelFor(model => model.Password)
-                        </th>
-                        <td>
-                            @Html.PasswordFor(model => model.Password)
-                            @Html.ValidationMessageFor(model => model.Password)
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th></th>
-                        <td>
-                            <input type="submit" value="Register" />
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </fieldset>
-
-    </div>
-}*@
-
     
 <script type="text/javascript">
     $(function () {
         
-
-        if (!ExUsers.processAddSubmit)
-        
-            ExUsers.processAddSubmit = function (e) {
+        if (!ExUsers.processEditSubmit)
+            ExUsers.processEditSubmit = function (e) {
                 e.preventDefault();
                 var thisForm = $(e.target).closest('form');
-                
                 var overlay = ExUsers.Overlay(ExUsers.Root);
-                $.post('@Url.Action("Register", "Account", new{Area = ExplorerWebAreas.Admin })',
+                $.post('@Url.Action("Edit", "Account", new{Area = ExplorerWebAreas.Admin })',
                     {
+                        UserId: thisForm.find("#UserId").val(),
                         UserName: thisForm.find("#UserName").val(),
                         FirstName: thisForm.find("#FirstName").val(),
                         LastName: thisForm.find("#LastName").val(),
-                        Password: thisForm.find("#Password").val(),
-                        IsActive: (thisForm.find("#IsActive:checked").length>0?true:false)
+                        IsActive: (thisForm.find("#IsActive:checked").length > 0 ? true : false)
                     },
                      function (data) {
-                         
                          overlay.remove();
                          if (data['Result'] != "SUCCESS") {
-                             if (data['Content'])
-                                 ExPages.Content.html(data['Content']);
                              EX.Notify(data["Message"], data["Description"]);
                              return;
                          }
-                         //ExPages.Sidebar.find('.site-tree').replaceWith(data['Content']['TreeView'])
+                         //if (data['Content']) {
+                         //    ExPages.Sidebar.find('.site-tree').replaceWith(data['Content']['TreeView'])
+                         //    ExPages.Content.html(data['Content']['Page'])
+                         //}
                          ExUsers.ZebraDialog.close();
                          ExUsers.ContentList.html(data['Content']['UserList']);
                          EX.Notify(data["Message"], data["Description"]);
                      });
-              
+
             };
 
-        //$("#formAddPage").submit(ExUsers.processAddSubmit);
-        //$(document).on('load', '#formAddPage', function () {
-        //    alert('started');
-        //});
+        //$("#formEditPage").submit(ExUsers.processEditSubmit);
     });
 </script>

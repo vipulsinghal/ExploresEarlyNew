@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +30,8 @@ namespace Explorers.Web.Areas.Admin.Infrastructure
                     Title = "Staff Administration", Area = "Admin", Controller = "Staff", Action = "Manage", Type = TopNavigationNodeType.Settings,
                     Children = new List<TopNavigationNode>
                     {
-                       new TopNavigationNode{Title = "Manage Users", Area = "Admin", Controller = "Staff", Action = "Create", Type = TopNavigationNodeType.Settings},
-                       new TopNavigationNode{Title = "Create New", Area = "Admin", Controller = "Staff", Action = "Create", Type = TopNavigationNodeType.Settings}
+                       new TopNavigationNode{Title = "Manage Users", Area = "Admin", Controller = "Account", Action = "Index", Type = TopNavigationNodeType.Settings}
+                       //new TopNavigationNode{Title = "Create New", Area = "Admin", Controller = "Staff", Action = "Create", Type = TopNavigationNodeType.Settings}
                     }
                 },
                 new TopNavigationNode{Title = "Configuration", Area = "Admin", Controller = "Config", Action = "Manage", Type = TopNavigationNodeType.Settings}

@@ -25,6 +25,14 @@ namespace Explorers.Web.Areas.Admin.Controllers
             _repoWebPage = new RepoWebPage(new ExDatabaseContext());
         }
 
+        private void UpdatePageDisplaySequence(int? parentId)
+        {
+            IList<WebPage> lstParentWebPages = _repoWebPage.DbContext.WebPages.Where(pg => pg.ParentId == parentId).ToList();
+            foreach (WebPage parentwebpage in lstParentWebPages)
+            { 
+            }
+        }
+
         private PagesIndex GetPageModel()
         {
             var pagesTreeView = _repoWebPage.GetAllPages();
@@ -45,12 +53,23 @@ namespace Explorers.Web.Areas.Admin.Controllers
         {
             var getPage = _repoWebPage.DbContext.WebPages.FirstOrDefault(pg => pg.Id == pageId);
             if (getPage == null)
-                return Json(new JsonResponse("Invalid Page!", "Invalid page id."));
+                return Json(new JsonResponse("Invalid Page!", "Invalid page id."), JsonRequestBehavior.AllowGet);
 
+            string parentName = default(string);
+            if (getPage.ParentId != 0)
+            {
+                var getParentPage = _repoWebPage.DbContext.WebPages.FirstOrDefault(pg => pg.Id == getPage.ParentId);
+                if (getParentPage != null)
+                {
+                    parentName = getParentPage.Title;
+                }
+            }
             var viewModel = new EditPageViewModel { 
              PageId = getPage.Id,
              Title = getPage.Title,
-             Contents = getPage.Contents
+             Contents = getPage.Contents,
+             ParentId= getPage.ParentId,
+             ParentName = parentName
             };
 
             var viewEdit = RenderPartialViewToString("Edit", viewModel);
@@ -93,7 +112,16 @@ namespace Explorers.Web.Areas.Admin.Controllers
 
         public JsonResult Add(int parentId = 0)
         {
-            var viewModel = new AddPageViewModel { ParentId = parentId };
+            string parentName = default(string);
+            if (parentId != 0)
+            {
+                var getParentPage = _repoWebPage.DbContext.WebPages.FirstOrDefault(pg => pg.Id == parentId);
+                if (getParentPage != null)
+                {
+                    parentName = getParentPage.Title;
+                }
+            }
+            var viewModel = new AddPageViewModel { ParentId = parentId, ParentName = parentName };
             var viewEdit = RenderPartialViewToString("Add", viewModel);
             return Json(new JsonResponse((object)viewEdit), JsonRequestBehavior.AllowGet);
         }
@@ -115,23 +143,33 @@ namespace Explorers.Web.Areas.Admin.Controllers
                 if (getPage == null)
                     return Json(new JsonResponse("Invalid parent page!", "The chosen parent page doesn't exist or is not root page."));
             }
-
+            
             var newPage = new WebPage
             {
                 Title = viewModel.Title,
                 Parent = getPage,
                 Contents = viewModel.Contents,
                 IsPublished = false
+                
             };
             _repoWebPage.DbContext.WebPages.Add(newPage);
             _repoWebPage.DbContext.SaveChanges();
+
+            var viewEditModel = new EditPageViewModel
+            {
+                PageId = newPage.Id,
+                Title = newPage.Title,
+                Contents = newPage.Contents,
+                ParentId = newPage.ParentId,
+                ParentName = (newPage.Parent != null ? newPage.Parent.Title : "")
+            };
 
             var modelTreeView = new PagesTreeView{CurrentPages =  _repoWebPage.GetAllPages()};
             return Json(new JsonResponse(
                 new
                 {
                     TreeView = RenderPartialViewToString("PagesTreeView", modelTreeView),
-                    Page = RenderPartialViewToString("Add", viewModel)
+                    Page = RenderPartialViewToString("Edit", viewEditModel)
                 }) { 
             Message = "Page Added Successfully!",
             Description = "New Page has been added succesfully."

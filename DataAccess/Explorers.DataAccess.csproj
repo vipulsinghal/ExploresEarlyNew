@@ -54,13 +54,14 @@
     <Compile Include="Migrations\201405030638218_InitialCreate.Designer.cs">
       <DependentUpon>201405030638218_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201405030714249_webpage.cs" />
-    <Compile Include="Migrations\201405030714249_webpage.Designer.cs">
-      <DependentUpon>201405030714249_webpage.cs</DependentUpon>
+    <Compile Include="Migrations\201405031814517_User.cs" />
+    <Compile Include="Migrations\201405031814517_User.Designer.cs">
+      <DependentUpon>201405031814517_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoBase.cs" />
+    <Compile Include="RepoServices\RepoUsers.cs" />
     <Compile Include="RepoServices\RepoWebPage.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,8 +78,8 @@
     <EmbeddedResource Include="Migrations\201405030638218_InitialCreate.resx">
       <DependentUpon>201405030638218_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405030714249_webpage.resx">
-      <DependentUpon>201405030714249_webpage.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405031814517_User.resx">
+      <DependentUpon>201405031814517_User.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,8 +19,9 @@ namespace Explorers.Web.Areas.Admin.Models.PageModel
         [DisplayName("Contents")]
         public string Contents { get; set; }
 
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         public bool IsPublished { get; set; }
+        public string ParentName { get; set; }
     }
 }

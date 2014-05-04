@@ -3,7 +3,13 @@
 
 <div class="ex-form-box">
     <div class="ex-form-caption">
+        @if (Model.ParentId != null && Model.ParentId != 0)
+        {
+            <h2>@Model.ParentName - Edit Child Page - @Model.Title</h2>
+        }
+        else{
         <h2>Edit Page - @Model.Title</h2>
+        }
     </div>
     <div class="ex-form-content">
         

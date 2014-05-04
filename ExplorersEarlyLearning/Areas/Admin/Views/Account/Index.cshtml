@@ -1,0 +1,172 @@
+﻿@model ListUsersViewModel
+@using Explorers.Web.Areas.Admin.Models.UserModel
+@using Explorers.Infrastructure.Entities
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    .ZebraDialog {
+        width: 850px;
+    }
+
+</style>
+
+<div id="main" style="width:80%;margin-left:10%;margin-right:10%;">
+
+    <div class="topbar clearfix" style="margin-bottom:20px;">
+        <span style="font-size:22px;margin-right:20px;font-weight: bold;color: #5BC0DE;">
+        Users List
+            </span>
+        @*<h1 style="float:right;font-size:16px;margin-right:20px;"><a href="/Account/Register" >Add User</a>*@
+
+           <a id="btnAddNewPage" class="btnAddNewUser">
+              <img src="/Areas/Admin/Content/Images/invis.gif" class="icon ex-icon-Add">
+                Add New User
+            </a>
+        
+    </div>
+
+    <div class="common-table fixed" >
+        <div class="thead" style="padding: 5px;background:#CEDADF;font-weight: bold; font-size: 16px;height:25px;color:#5BB65E;">
+            
+            <div class="sort" style="width: 20%;float:left;">
+                User Name
+            </div>
+
+            <div style="width: 20%;float:left;">
+                First Name
+            </div>
+            <div style="width: 20%;float:left;">
+                Last Name
+            </div>
+            <div style="width: 10%;float:left;">
+                Activiated
+            </div>
+            <div style="width: 30%;float:left;text-align:center;">
+                Actions
+            </div>
+
+        </div>
+        <div style="clear:both;">&nbsp;</div>
+        <div class="tbody"  >
+
+           @{Html.RenderPartial("List", Model );}
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var ExUsers = {};
+    ExUsers.Root = $("#ex-container");
+    ExUsers.ContentList = $("#ex-container #main .tbody");
+    ExUsers.ActionTypes = {
+        "RegisterUser": "RegisterUser", "EditUser": "EditUser", "DeleteUser": "DeleteUser", "ChangeUserPassword": "ChangeUserPassword"
+    };
+
+    ExUsers.ZebraDialog;
+
+    ExUsers.InitView = function () {
+        var createOverlay = function (target, id) {
+            if (id == undefined) id = "overlay";
+            else id = "ov_" + id;
+            var span = $('<span></span>').css('margin-top', $(target).outerHeight() / 2);
+            var center = $('<center></center>').append(span);
+            var overlay = $('<div id="' + id + '" class="ex-overlay"></div>').append(center);
+            var tWidth = $(target).outerWidth();
+            var tHeight = $(target).outerHeight();
+            $(overlay).css({ position: "absolute", left: "0", top: "0", width: tWidth, height: tHeight });
+            overlay.appendTo($(target));
+            target.overlay = overlay;
+            return overlay;
+        };
+
+        var bindActions = function () {
+
+            var processOp = function (user, op) {
+                switch (op) {
+                    case ExUsers.ActionTypes.RegisterUser:
+                        processRegister();
+                        break;
+                    case ExUsers.ActionTypes.EditUser:
+                        processEdit(user);
+                        break;
+                    case ExUsers.ActionTypes.DeleteUser:
+                        processDelete(user);
+                        break;
+                    case ExUsers.ActionTypes.ChangeUserPassword:
+                        processChangePassword(user);
+                        break;
+                    default:
+                }
+            };
+
+            var processEdit = function (user) {
+                var overlay = createOverlay(ExUsers.Root);
+                $.get('@Url.Action("Edit", "Account", new{Area = ExplorerWebAreas.Admin})',
+                    { userId: user },
+                    function (data) {
+                        overlay.remove();
+                        if (data['Result'] != "SUCCESS") {
+                            EX.Notify(data["Message"], data["Description"]);
+                            return;
+                        }
+                        ExUsers.ZebraDialog = EX.Modal("", data['Content']);
+                        //ExUsers.Content.html(data['Content']);
+                        $("#formEditPage").submit(ExUsers.processEditSubmit);
+                    });
+            };
+
+            var processRegister = function () {
+                var overlay = createOverlay(ExUsers.Root);
+                $.get('@Url.Action("Register", "Account", new{Area = ExplorerWebAreas.Admin})',
+                     function (data) {
+                         overlay.remove();
+                         //ExUsers.Content.html(data['Content']);
+                         ExUsers.ZebraDialog = EX.Modal("", data['Content']);
+                         $("#formAddPage").submit(ExUsers.processAddSubmit);
+                     });
+            };
+
+            var processDelete = function (user) {
+                var overlay = createOverlay(ExUsers.Root);
+                $.get('@Url.Action("Delete", "Account", new{Area = ExplorerWebAreas.Admin})',
+                    { userId: user },
+                     function (data) {
+                         overlay.remove();
+                         //ExUsers.Content.html(data['Content']);
+                         ExUsers.ZebraDialog = EX.Modal("", data['Content']);
+                         $("#formDeletePage").submit(ExUsers.processDeleteSubmit);
+                     });
+            };
+
+
+            var processChangePassword = function (user) {
+                var overlay = createOverlay(ExUsers.Root);
+                $.get('@Url.Action("ChangePassword", "Account", new{Area = ExplorerWebAreas.Admin})',
+                    { userId: user },
+                     function (data) {
+                         overlay.remove();
+                         //ExUsers.Content.html(data['Content']);
+                         ExUsers.ZebraDialog = EX.Modal("", data['Content']);
+                         $("#formChangePwdPage").submit(ExUsers.processChangePasswordSubmit);
+                     });
+            };
+
+            $(document).on('click', '#ex-container .userActions a', function (e) {
+                var relOp = $(e.target).attr('relO');
+                var relUser = $(e.target).closest('div').attr('relU');
+                processOp(relUser, relOp);
+            }).on('click', '#ex-container .btnAddNewUser', function (e) {
+                processOp(null, ExUsers.ActionTypes.RegisterUser);
+            });
+        };
+
+        ExUsers.Overlay = createOverlay;
+        bindActions();
+    };
+
+    $(function () {
+        ExUsers.InitView();
+    });
+ </script>

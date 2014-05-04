@@ -16,3 +16,14 @@ EX.Notify = function (Title, Desc) {
         'auto_close': 3000
     });
 };
+
+EX.Modal = function (title, content) {
+    return new $.Zebra_Dialog(content, {
+        'type': 'question',
+        'title': title,
+        'buttons': ['Cancel']
+        //'buttons': [
+        //        { caption: 'Cancel', callback: function () { alert('"Cancel" was clicked') } }
+        //]
+    });
+};

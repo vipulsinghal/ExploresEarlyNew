@@ -1,0 +1,37 @@
+﻿@model ListUsersViewModel
+@using Explorers.Web.Areas.Admin.Models.UserModel
+@using Explorers.Infrastructure.Entities
+
+
+ @if (Model.CurrentUsers.Count > 0)
+            {
+                foreach (User user in Model.CurrentUsers)
+                {
+                        
+                <div style="width: 20%;float:left;">
+                        @user.UserName
+                </div>
+                <div style="width: 20%;float:left;">
+                    @user.FirstName&nbsp;
+                </div>
+                <div style="width: 20%;float:left;">
+                    @user.LastName&nbsp;
+                </div>
+                <div style="width: 10%;float:left;">
+                    @user.IsActive.ToString()
+                </div>
+                <div class="userActions" style="width: 30%;float:left;text-align:center;" relU="@user.UserId">
+                    @*<a title="Edit"  href="/Account/Detail/@user.UserId">View</a>*@
+                    @*@if(WebSecurity.CurrentUserName==@user.UserName || Roles.IsUserInRole(WebSecurity.CurrentUserName,ExplorersEarlyLearning.Common.UserRoles.SuperAdmin.ToString()))
+                            {
+                                *@
+                    <a title="Edit" relO="EditUser" href="#">Edit</a>
+                    <a title="Delete" relO="DeleteUser" href="#">Delete</a>
+                    <a title="Change Password" relO="ChangeUserPassword" href="#">Change Password</a>
+                    @*}*@
+                </div>
+                    
+                        }
+                    }
+
+

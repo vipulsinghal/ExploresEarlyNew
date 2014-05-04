@@ -120,6 +120,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController\ControllerBase.cs" />
+    <Compile Include="Areas\Admin\Infrastructure\ListPager.cs" />
     <Compile Include="Areas\Admin\Infrastructure\TopNavigation.cs" />
     <Compile Include="Areas\Admin\Infrastructure\TopNavigationNode.cs" />
     <Compile Include="Areas\Admin\Models\PageModel\AddPageViewModel.cs" />
@@ -130,6 +131,11 @@
     <Compile Include="Areas\Admin\Models\PageModel\PagesTreeViewActionType.cs" />
     <Compile Include="Areas\Admin\Models\PageModel\PagesIndex.cs" />
     <Compile Include="Areas\Admin\Models\PageModel\PagesTreeView.cs" />
+    <Compile Include="Areas\Admin\Models\UserModel\ChangePasswordUserViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserModel\DeleteUserViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserModel\EditUserViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserModel\ListUsersViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\UserModel\RegisterUserViewModel.cs" />
     <Compile Include="Controllers\CentresController.cs" />
     <Compile Include="Controllers\ContactusController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
@@ -550,6 +556,12 @@
     <Content Include="Areas\Admin\Content\ckeditor\skins\moono\readme.md" />
     <Content Include="Areas\Admin\Views\Page\Publish.cshtml" />
     <Content Include="Areas\Admin\Views\Page\Unpublish.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Pager.cshtml" />
     <None Include="Properties\PublishProfiles\vipul.pubxml" />
     <Content Include="Views\Philosophy\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -599,7 +611,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5668</DevelopmentServerPort>
+          <DevelopmentServerPort>8268</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1415/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

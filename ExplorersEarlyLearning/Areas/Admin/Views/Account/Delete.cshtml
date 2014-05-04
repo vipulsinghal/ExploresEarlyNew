@@ -1,0 +1,56 @@
+﻿@model Explorers.Web.Areas.Admin.Models.UserModel.DeleteUserViewModel
+
+
+<div class="ex-form-box">
+    <div class="ex-form-caption">
+        <h2>Delete User - @Model.UserName</h2>
+    </div>
+    <div class="ex-form-content">
+        
+        <form id="formDeletePage" class="ex-form">
+            @Html.HiddenFor(x => x.UserId)
+
+            <p>Are you sure you want to delete this user name?</p>
+            
+            <div class="sep"></div>
+            
+            <div class="ex-form-group ex-center">
+                <button class="ex-btn ex-btn-save">Delete</button>
+                
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+    
+<script type="text/javascript">
+    $(function () {
+
+        if (!ExUsers.processDeleteSubmit)
+            ExUsers.processDeleteSubmit = function (e) {
+                e.preventDefault();
+                var thisForm = $(e.target).closest('form');
+                var overlay = ExUsers.Overlay(ExUsers.Root);
+                $.post('@Url.Action("Delete", "Account", new{Area = ExplorerWebAreas.Admin })',
+                    {
+                        userId: thisForm.find("#UserId").val()
+                    },
+                     function (data) {
+                         overlay.remove();
+                         if (data['Result'] != "SUCCESS") {
+                             EX.Notify(data["Message"], data["Description"]);
+                             return;
+                         }
+                         
+                         ExUsers.ZebraDialog.close();
+                         ExUsers.ContentList.html(data['Content']['UserList']);
+                         EX.Notify(data["Message"], data["Description"]);
+                     });
+
+            };
+
+        
+    });
+</script>

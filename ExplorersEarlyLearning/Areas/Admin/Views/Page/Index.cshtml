@@ -76,8 +76,12 @@
                 var overlay = createOverlay(ExPages.Content);
                 $.get('@Url.Action("Edit", "Page", new{Area = ExplorerWebAreas.Admin})',
                     {pageId: page},
-                    function(data) {
+                    function (data) {
                         overlay.remove();
+                        if (data['Result'] != "SUCCESS") {
+                            EX.Notify(data["Message"], data["Description"]);
+                            return;
+                        }
                         ExPages.Content.html(data['Content']);
                     });
             };
@@ -126,7 +130,7 @@
 
             $(document).on('click', '#ex-container .map-item li a', function(e) {
                 var relOp = $(e.target).attr('relO');
-                var relPage = $(e.target).closest('ul').attr('relP');
+                var relPage = $(e.target).closest('div').attr('relP');
                 processOp(relPage, relOp);
             }).on('click', '#ex-container #btnAddNewPage', function (e) {
                 processOp(null, ExPages.ActionTypes.AddPage);

@@ -82,14 +82,16 @@ p{ line-height:20px;}
 .middle_container .container1{ padding:21px 33px 20px 33px;}
 .middle_container .container1 .sliderbox{ width:600px; float:left;}
 
-#outer{height:311px; width:94%;  }
-.middle_container .container1 .centerbox{ background:url(../images/centerhome_bg.jpg) no-repeat; width:260px;float:right;}
-
+#outer{height:296px; width:94%;  }
+/*.middle_container .container1 .centerbox{ background:url(../images/centerhome_bg.jpg) no-repeat; width:260px;float:right;}*/
+.middle_container .container1 .centerbox{ background:url(../images/centerhome_bg.jpg) no-repeat; width:260px;float:right; background-size:cover; margin-top:-6px;}
 
 .centerbox .panel-heading a {
     color:#fff;
 }
-.centerbox .panel-heading{ font-family: 'janda_safe_and_soundregular'; text-transform:capitalize; color:#fff; font-size:18px; background:url(../images/leaf.png) no-repeat  5px 20px; padding:24px 0 5px 45px; margin-top:8px; font-weight:normal;}
+/*.centerbox .panel-heading{ font-family: 'janda_safe_and_soundregular'; text-transform:capitalize; color:#fff; font-size:18px; background:url(../images/leaf.png) no-repeat  5px 20px; padding:24px 0 5px 45px; margin-top:8px; font-weight:normal;}*/
+
+.centerbox .panel-heading{ font-family: 'janda_safe_and_soundregular'; text-transform:capitalize; color:#fff; font-size:18px; background:url(../images/leaf.png) no-repeat  5px 20px; padding:24px 0 5px 45px; margin-top:2px; font-weight:normal;}
 .centerbox .panel-heading.panel-purple2 {
 	background: #82627e;
 }
@@ -132,6 +134,7 @@ color: #1598cc;
 font-family: Arial, Helvetica, sans-serif;
 text-decoration: none;
 }
+
 
 
 /*----middle_container css start here---*/

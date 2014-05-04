@@ -60,7 +60,7 @@ ul.site-tree {
     width: 200px;
 }
 
-    .map-item.published, .site-tree .tree-node .tree-node .map-item.published {
+    .map-item.published {
       background-color:#5BB65E;
     }
 
@@ -71,7 +71,7 @@ ul.site-tree {
     background-color: #5BB65E;
 }
 
-.site-tree .tree-node .tree-node .map-item {
+.site-tree .tree-node .tree-node .map-item, .site-tree .tree-node .tree-node .map-item.published {
     background-color: #ACACAC;
 }
 

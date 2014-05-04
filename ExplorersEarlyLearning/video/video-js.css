@@ -10,7 +10,11 @@ replace all occurances of 'vjs-default-skin' with a new name. Then add your new
 skin name to your video tag instead of the default skin.
 e.g. <video class="video-js my-skin-name">
 */
-.vjs-default-skin{ height: 370px !important; width: 600px !important;}
+/*.vjs-default-skin{ height: 370px !important; width: 600px !important;}*/
+.vjs-default-skin{ height: 344px !important;
+    margin-left: 33px;
+    width: 561px !important;
+}
 .vjs-default-skin {
   color: #cccccc;
 }
